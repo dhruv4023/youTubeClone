@@ -29,7 +29,7 @@ function ShowVideo({ vid }) {
           ) : (
             <>
               <div className="chanel_logo">
-                <p>{vid?.Uploder}</p>
+                <p>{vid?.Uploder.charAt(0).toUpperCase()}</p>
               </div>
             </>
           )}
