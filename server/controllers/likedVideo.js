@@ -24,14 +24,11 @@ export const getlikedVideo = async (req, res, next) => {
 };
 
 export const deletelikedVideo = async (req, res) => {
-  const { id: _id } = req.params;
+  const {videoId:videoId, Viewer:Viewer} = req.params;
   // console.log(_id)
-  if (!mongoose.Types.ObjectId.isValid(_id)) {
-      return res.status(404).send('Video unavailable in Your likedVideo...')
-  }
   try {
-      await likedVideo.findByIdAndRemove(_id);
-      res.status(200).json({ message: "Removed From Your likedVideo Successfully  ..." })
+      await likedVideo.findOneAndDelete({videoId:videoId, Viewer:Viewer});
+       res.status(200).json({ message: "Removed From Your likedVideo Successfully  ..." })
   } catch (error) {
       res.status(400).json({ message: error.message })
   }

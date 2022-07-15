@@ -48,7 +48,7 @@ function ShowVideoGrid({ Cid }) {
         </>
       ) : (
         <>
-          {vids?.data?.map((vi) => {
+          {vids?.data?.filter(q=>q).reverse().map((vi) => {
             // console.log(vi)
             return (
               <div key={vi._id} className="video_box">

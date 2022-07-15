@@ -4,7 +4,7 @@ video {
 
 .container_pages {
   display: flex;
-  background-color: rgb(47, 47, 47);
+  background-color: rgb(11, 10, 10);
 }
 
 .container_pages2 {
@@ -15,8 +15,14 @@ video {
 }
 
 .video_box {
-  width: 20rem;
-  height: 20rem;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 
+  2px 2px rgba(186, 183, 183, 0.5),
+  -2px 2px rgba(167, 246, 93, 0.4),
+  -2px -2px rgba(248, 107, 107, 0.3),
+  2px -2px rgba(116, 88, 239, 0.5)
+  ;
   margin: 0.5rem;
   border: 2px solid;
   border-radius: 0.5rem;

@@ -24,10 +24,11 @@ export const getwatchLater = async (req, res, next) => {
 };
 
 export const deletewatchLater = async (req, res) => {
-  const { id: _id } = req.params;
-  // console.log(_id)
+  const {videoId:videoId, Viewer:Viewer} = req.params;
+  // console.log(videoId,Viewer)
   try {
-      await watchLater.findByIdAndRemove(_id);
+      await watchLater.findOneAndDelete({videoId:videoId, Viewer:Viewer});
+     
       res.status(200).json({ message: "Removed From Your WatchLater Successfully  ..." })
   } catch (error) {
       res.status(400).json({ message: error.message })

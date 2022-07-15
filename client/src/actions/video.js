@@ -4,6 +4,7 @@ export const uploadVideo = (videoData) => async (dispatch) => {
   try {
     // console.log(videoData);
     const { formData, singleFileOptions } = videoData;
+    // console.log(formData)
     const { data } = await api.uploadVideo(formData, singleFileOptions);
     dispatch({ type: "POST_VIDEO", data });
     dispatch(getVideos());

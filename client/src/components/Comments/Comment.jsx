@@ -9,13 +9,13 @@ import "./comment.css";
 
 export default function Comment({ videoId }) {
   const [comment, setComment] = useState("");
-  const User = useSelector((state) => state.currentUserReducer);
+  const currentUser = useSelector((state) => state.currentUserReducer);
   const commentsList = useSelector((state) => state.commentReducer);
 
   console.log(commentsList);
 
   const checkAuth = () => {
-    if (User === null) {
+    if (currentUser === null) {
       alert("login or signup to post Your Comments");
     }
   };
@@ -30,9 +30,9 @@ export default function Comment({ videoId }) {
       dispatch(
         postComment({
           videoId: videoId,
-          userId: User?.result?._id,
+          userId: currentUser?.result?._id,
           commentBody: comment,
-          userCommented: User?.result.name,
+          userCommented: currentUser?.result.name,
         })
       );
       setComment("");
@@ -40,20 +40,29 @@ export default function Comment({ videoId }) {
   };
   return (
     <>
-      <form onSubmit={handleSubmitComment} className="commentSubForm">
+      <form
+        onSubmit={handleSubmitComment}
+        onClick={checkAuth}
+        className="commentSubForm"
+      >
         <input
           type="text"
           placeholder="add Comment... "
           onChange={(e) => setComment(e.target.value)}
           className="commentIBox"
           value={comment}
-          onClick={checkAuth}
+          disabled={currentUser == null}
         />
-        <input type="submit" className="commentAddBtn" value="add" />
+        <input
+          type="submit"
+          disabled={currentUser == null}
+          className="commentAddBtn"
+          value="add"
+        />
       </form>
       <div className="displayComment_commentsPage">
         {commentsList?.data
-          ?.filter((q) => videoId === q?.videoId)
+          ?.filter((q) => videoId === q?.videoId).reverse()
           .map((m) => (
             // console.log(m)
             <DisplayComments

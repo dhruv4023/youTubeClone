@@ -23,6 +23,7 @@ export const uploadVideos = async (req, res, next) => {
         fileType: req.file.mimetype,
         fileSize: req.file.size, // 0.00
         videoChanel: req.body.chanel,
+        Uploder: req.body.Uploder,
         //   fileSize: fileSizeFormatter(req.file.size, 2), // 0.00
       });
       // console.log("done")

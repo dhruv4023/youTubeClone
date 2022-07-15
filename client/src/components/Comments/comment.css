@@ -1,6 +1,7 @@
 .commentSubForm {
   display: flex;
   width: 70%;
+  /* visibility: ; */
 }
 
 .commentIBox {
