@@ -1,0 +1,81 @@
+.container_VideoPage {
+  height: calc(100vh - 3.2rem);
+  overflow-y: auto;
+  background-color: rgb(11, 11, 11);
+  color: white;
+}
+
+.video_diplay_screen_VideoPage {
+  margin: 0.8rem;
+}
+
+.video_ShowVideo_VideoPage {
+  padding: 0.1rem;
+  width: 70vw;
+  height: 70vh;
+  border: 2px solid rgba(37, 37, 37, 0.396);
+}
+
+.video_details_VideoPage {
+  /* display: flex; */
+  /* border: 2px solid red; */
+  width: 70vw;
+}
+.video_tittle_like_watchlater_btn {
+    border-bottom: 3px solid rgba(245, 222, 179, 0.175);
+}
+.video_tittle_like_watchlater_btn p {
+  /* border: 2px solid red; */
+  margin: 0;
+  font-weight: bold;
+  font-size: large;
+  padding: 0.8rem;
+  flex-grow: 1;
+}
+.video_tittle_like_watchlater_btn div {
+    display:flex ;
+    flex-grow: 1;
+}
+
+.video_tittle_like_watchlater_btn div b{
+    /* border: 2px solid red;  */
+    display: flex;
+}
+
+.btn_videoPage:hover{
+    color: rgba(162, 162, 162, 0.8);
+}
+.btn_videoPage{
+    margin: auto 0.9rem;
+    cursor: pointer;
+}
+.like_videopage b{
+    margin: auto 0.5rem;
+}
+.chanel_details_videoPage{
+    border-bottom: 3px solid rgba(245, 222, 179, 0.175);
+    display: flex;
+    font-weight: bolder;
+}
+.chanel_logo_videPage p{
+    color: black;
+    margin: auto;
+    font-size: xx-large;
+}
+.chanel_logo_videPage{
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.119);
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.673);
+    border-radius: 100%;
+}
+.chanel_name_videPage{
+    font-weight: bolder;
+    margin: auto 1rem;
+    font-size: larger;
+}
+.comments_videoPage{
+  width: 70vw;
+}

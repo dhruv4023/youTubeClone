@@ -1,0 +1,94 @@
+.burger_logo {
+  display: flex;
+}
+
+.logo_Navbar p {
+  margin: auto;
+  color: white;
+  font-weight: bold;
+}
+
+.logo_Navbar {
+  display: flex;
+  text-decoration: none;
+}
+
+.container_Navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  background-color: rgb(21, 21, 21);
+}
+
+.search_div {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 3rem;
+  height: 2rem;
+}
+
+.Search_Navbar {
+  background-color: rgb(54, 53, 53);
+  width: 30rem;
+  border: 0px;
+  color: white;
+  padding: 0.3rem;
+  padding-left: 2rem;
+  border-radius: 0.3rem;
+}
+
+.searchIcon_Navbar:hover {
+  background-color: rgb(43, 43, 43);
+}
+
+.searchIcon_Navbar {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 1rem;
+  border-radius: 0.1rem;
+  background-color: rgb(78, 78, 78);
+  color: aliceblue;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-evenly;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  margin-left: 0.5rem;
+  margin-right: 0.7rem;
+  border-radius: 100%;
+}
+
+.burger:active {
+  border: 2px solid rgba(255, 255, 255, 0.781);
+}
+
+.burger p {
+  margin: 1px;
+  width: 2rem;
+  height: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.781);
+}
+
+.Auth_Btn {
+  cursor: pointer;
+  margin: auto;
+  padding: 0.5rem;
+  color: rgb(128, 128, 241);
+  background-color: rgb(36, 36, 36);
+  border-radius: 0.5rem;
+  border: 2px solid;
+}
+.Auth_Btn:hover {
+  color: aqua;
+}
+.Auth_Conatiner_navbar {
+  width: 5rem;
+  margin: auto 0;
+  display: flex;
+}

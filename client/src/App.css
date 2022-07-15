@@ -1,0 +1,45 @@
+video {
+  background-color: rgba(0, 0, 0, 0.114);
+}
+
+.container_pages {
+  display: flex;
+  background-color: rgb(47, 47, 47);
+}
+
+.container_pages2 {
+  width: calc(100vw - 5rem);
+  height: calc(100vh - 3.3rem);
+  border: 2px solid;
+  overflow-y: auto;
+}
+
+.video_box {
+  width: 20rem;
+  height: 20rem;
+  margin: 0.5rem;
+  border: 2px solid;
+  border-radius: 0.5rem;
+}
+
+.sidebar_on_nonSidebarPage {
+  width: 15rem;
+  height: calc(100vh - 3rem);
+  position: absolute;
+  z-index: 5;
+}
+
+.Chanel_logo_App {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 100%;
+  background-color: rgb(214, 227, 214);
+  display: flex;
+}
+
+.fstChar_logo_App {
+  margin: auto;
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+}

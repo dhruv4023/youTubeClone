@@ -1,0 +1,5 @@
+.container_home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
