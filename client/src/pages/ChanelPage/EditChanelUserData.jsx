@@ -6,11 +6,12 @@ import { updateUserData } from "../../actions/user";
 import "./editChanel.css";
 
 import "../Auth/loginSignupPage.css";
+import { login } from "../../actions/auth";
 function EditChanelUserData({ setEditChanel }) {
   const dispatch = useDispatch();
 
   const currentUser = useSelector((state) => state.currentUserReducer);
-//   console.log(currentUser);
+  //   console.log(currentUser);
   const [name, setName] = useState(currentUser?.result?.name);
   // const [age, setAge] = useState("");
   const [desc, setDesc] = useState(currentUser?.result?.desc);
@@ -28,6 +29,9 @@ function EditChanelUserData({ setEditChanel }) {
       );
       setEditChanel(false);
       alert("Done !!!");
+      setTimeout(() => {
+        dispatch(login({ email: currentUser?.result.email }));
+      }, 5000);
     }
   };
   return (
@@ -46,7 +50,6 @@ function EditChanelUserData({ setEditChanel }) {
           name="text"
           placeholder="Enter Your/Chanel Name"
           className="ibox_lsp"
-          
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
