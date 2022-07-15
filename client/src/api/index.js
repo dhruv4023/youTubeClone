@@ -18,7 +18,7 @@ export const updateUserData = (id, updateData) => API.patch(`/user/update/${id}`
 export const uploadVideo = (data,options) => API.post('/video/uploadvideo', data,options);
 export const getVideos = () => API.get('/video/getvideo');
 export const likeVideo = (id, Like) => API.patch(`/video/like/${id}`, {Like});
-export const viewVideo = (id, Views) => API.patch(`/video/view/${id}`, {Views});
+export const viewVideo = (id) => API.patch(`/video/view/${id}`);
 
 export const addToHistory = (historyData) => API.post(`/video/history`, historyData)
 export const getHistory = () => API.get('/video/getHistory');

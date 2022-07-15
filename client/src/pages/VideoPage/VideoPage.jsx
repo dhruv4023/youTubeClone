@@ -7,7 +7,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToHistory } from "../../actions/history";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { useEffect } from "react";
 import LikeWatchLater_BTN from "./LikeWatchLater_BTN";
 import { viewVideo } from "../../actions/video";
@@ -33,14 +33,11 @@ function VideoPage({ wdt }) {
       })
     );
   };
-
-  const [View, setView] = useState(0);
   const handleViews = (vw) => {
     // console.log(vw);
     dispatch(
       viewVideo({
-        id: vid,
-        Views: vw + 1,
+        id: vid
       })
     );
   };
@@ -48,7 +45,7 @@ function VideoPage({ wdt }) {
     if (currentUser !== null) {
       handleHistory();
     }
-    handleViews(View);
+    handleViews();
   }, []);
 
   // console.log(currentUser);
@@ -82,7 +79,6 @@ function VideoPage({ wdt }) {
             // src={vv.video_src}
             src={`http://localhost:5500/${vv.filePath}`}
             controls
-            onClick={() => setView(vv.Views)}
           />
           <div className="video_details_VideoPage">
             <div className="video_tittle_like_watchlater_btn">

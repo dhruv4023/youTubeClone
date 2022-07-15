@@ -48,6 +48,7 @@
   text-overflow: clip;
 }
 .vid_views_UploadTime {
+  margin: .15rem;
   font-size: small;
   font-style: italic;
   color: rgba(250, 235, 215, 0.355);

@@ -46,6 +46,7 @@ function EditChanelUserData({ setEditChanel }) {
           name="text"
           placeholder="Enter Your/Chanel Name"
           className="ibox_lsp"
+          
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

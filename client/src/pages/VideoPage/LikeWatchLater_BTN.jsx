@@ -107,6 +107,7 @@ function LikeWatchLater_BTN({ vv, vid }) {
           })
         );
       }
+      dispatch(deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id }));
       setLike(false);
     } else {
       alert("Plz Login to DisLike The Video");

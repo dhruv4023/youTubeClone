@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import "./Auth.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { BiLogOut } from "react-icons/bi";
 import { GoogleLogout } from "react-google-login";
 function Auth({ User, handleEditChanel, setAuthBtn }) {
   // const user = null;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const User = {
   //   result: {
   //     age: "2022-06-01T00:00:00.000Z",

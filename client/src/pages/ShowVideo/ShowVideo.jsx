@@ -44,7 +44,7 @@ function ShowVideo({ vid }) {
                   </>
                 } */}
           </p>
-          <p className="vid_views_UploadTime">Views: {vid.Views}</p>
+          <pre className="vid_views_UploadTime">Views: {vid.Views}        Likes: {vid.Like}</pre>
           <p className="vid_views_UploadTime">
             Uploded {moment(vid.createdAt).fromNow()} by {vid.Uploder}
           </p>
