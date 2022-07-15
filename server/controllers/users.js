@@ -13,7 +13,7 @@ export const getAllUsers = async (req, res) => {
             // tags: { type: [String] },
             // age: { type: Date },
             // joinedOn: { type: Date, default: Date.now }
-            allUserDetails.push({ _id: users._id, name: users.name, email: users.email, about: users.about, tags: users.tags, joinedOn: users.joinedOn});
+            allUserDetails.push({ _id: users._id, name: users.name, email: users.email, desc: users.desc, joinedOn: users.joinedOn});
         })
         res.status(200).json(allUserDetails);
     } catch (error) {

@@ -8,7 +8,7 @@ function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
   const chanels = useSelector((state) => state.currentUserProfileReducer);
   const currentChanel = chanels.filter((user) => user._id === Cid)[0];
   const currentUser = useSelector((state) => state.currentUserReducer);
-  // console.log(currentChanel);
+  console.log(currentChanel);
   // const currentChanel = {
   //   age: "2022-06-01T00:00:00.000Z",
   //   email: "ab@mail.com",

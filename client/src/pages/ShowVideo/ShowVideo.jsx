@@ -14,6 +14,7 @@ function ShowVideo({ vid }) {
     <>
       <Link to={`/VideoPage/${vid._id}`}>
         <video
+          // src={`https://youtubeclone4023.herokuapp.com/${vid.filePath}`}
           src={`http://localhost:5500/${vid.filePath}`}
           className="video_ShowVideo"
         ></video>
