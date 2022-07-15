@@ -52,7 +52,7 @@ function ShowVideoGrid({ Cid }) {
             // console.log(vi)
             return (
               <div key={vi._id} className="video_box">
-                <ShowVideo  vid={vi} />
+                <ShowVideo  vid={vi} morVid={vids} />
               </div>
             );
           })}

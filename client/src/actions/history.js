@@ -22,7 +22,7 @@ export const addToHistory = (historyData) => async (dispatch) => {
   export const clearHistory = (vid) => async (dispatch) => {
     try {
       const { userId} = vid;
-      // console.log(vid);
+      console.log(vid);
       await api.deleteHistory(userId);
       dispatch(getHistory());
     } catch (error) {

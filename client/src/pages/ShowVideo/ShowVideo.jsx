@@ -6,7 +6,7 @@ import moment from "moment";
 
 function ShowVideo({ vid }) {
   const chanels = useSelector((state) => state?.currentUserProfileReducer);
-  console.log(vid);
+  // console.log(vid);
 
   const currentChanel = chanels?.filter((c) => c?._id === vid?.videoChanel)[0];
 
@@ -36,8 +36,8 @@ function ShowVideo({ vid }) {
         </div>
         <div className="video_details">
           <p className="title_vid_ShowVideo">
-            <>{String("vid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitle").slice(0, 20)}...</>
-            {/* <>{String(vid.videoTitle).slice(0, 20)}...</> */}
+            {/* <>{String("vid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitle").slice(0, 20)}...</> */}
+            <>{String(vid.videoTitle).slice(0, 20)}...</>
             {/* {
                   (String(vid?.videoTitle)?.length()>20 )?
                   :<>{vid.videoTitle}

@@ -16,8 +16,9 @@
 .container_Navbar {
   display: flex;
   justify-content: space-between;
-  height: 3rem;
+  height: calc(3rem - 2px);
   background-color: rgb(21, 21, 21);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
 }
 
 .search_div {

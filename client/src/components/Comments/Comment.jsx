@@ -12,7 +12,7 @@ export default function Comment({ videoId }) {
   const currentUser = useSelector((state) => state.currentUserReducer);
   const commentsList = useSelector((state) => state.commentReducer);
 
-  console.log(commentsList);
+  // console.log(commentsList);
 
   const checkAuth = () => {
     if (currentUser === null) {

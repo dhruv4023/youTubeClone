@@ -33,25 +33,31 @@ function WHL({ wdt, name, whl }) {
           </div>
           <div className="box_WHL">
             <h1> {name}</h1>
-            {currentUser?.result?._id ? (
-              <>
-                {whl?.data
-                  ?.filter((q) => q?.Viewer === currentUser?.result?._id)
-                  .reverse()
-                  .map((m) => {
-                    console.log(m);
-                    return (
-                      <>
-                        <ShowVideoList key={m._id} videoId={m?.videoId} />
-                      </>
-                    );
-                  })}
-              </>
-            ) : (
-              <>
-                <h2>Plz Login to watch your {name} list</h2>
-              </>
-            )}
+            <div className="whlList">
+              {currentUser?.result?._id ? (
+                <>
+                  {whl?.data
+                    ?.filter((q) => q?.Viewer === currentUser?.result?._id)
+                    .reverse()
+                    .map((m) => {
+                      // console.log(m);
+                      return (
+                        <>
+                          <ShowVideoList
+                            key={m._id}
+                            videoId={m?.videoId}
+                            date={m?.viewedOn}
+                          />
+                        </>
+                      );
+                    })}
+                </>
+              ) : (
+                <>
+                  <h2>Plz Login to watch your {name} list</h2>
+                </>
+              )}
+            </div>
           </div>
         </p>
       </div>

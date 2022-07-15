@@ -2,7 +2,7 @@ import express from "express";
 import { uploadVideos, getVideos } from "../controllers/video.js";
 import upload from "../helpers/filehelpers.js";
 const routes = express.Router();
-import { historyController,getHistory } from "../controllers/history.js";
+import { historyController,getHistory,clearhistory } from "../controllers/history.js";
 import { watchLaterController,getwatchLater,deletewatchLater } from "../controllers/watchLater.js";
 
 import { likedVideoController,getlikedVideo,deletelikedVideo } from "../controllers/likedVideo.js";
@@ -17,6 +17,7 @@ routes.get("/getvideo", getVideos);
 
 routes.post("/history", auth, historyController);
 routes.get("/getHistory", getHistory);
+routes.delete("/clearhistory/:userId", auth, clearhistory);
 
 routes.post("/watchLater", auth, watchLaterController);
 routes.get("/getwatchLater", getwatchLater);

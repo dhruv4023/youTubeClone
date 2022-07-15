@@ -6,7 +6,7 @@ import logo from "./logo.ico";
 import Auth from "../../pages/Auth/Auth";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
+import { gapi } from "gapi-script";
 function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
   const currentUser = useSelector((state) => state.currentUserReducer);
   // const currentUser = {
@@ -17,6 +17,8 @@ function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
   // };
   // console.log(currentUser);
   const [AuthBtn, setAuthBtn] = useState(false);
+
+
   return (
     <>
       <div className="container_Navbar">
@@ -47,7 +49,7 @@ function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
               <div
                 className="Chanel_logo_App"
                 onClick={() => {
-                   setAuthBtn(true);
+                  setAuthBtn(true);
                 }}
               >
                 <p className="fstChar_logo_App">
@@ -60,14 +62,21 @@ function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
               </div>
             </>
           ) : (
-            <p onClick={() => setLoginPage(true)} className="Auth_Btn">
-              Sign In
-            </p>
+            <>
+              <p onClick={() => setLoginPage(true)} className="Auth_Btn">
+                Sign In
+              </p>
+
+            </>
           )}
         </div>
       </div>
       {AuthBtn && (
-        <Auth setAuthBtn={setAuthBtn} User={currentUser} handleEditChanel={handleEditChanel} />
+        <Auth
+          setAuthBtn={setAuthBtn}
+          User={currentUser}
+          handleEditChanel={handleEditChanel}
+        />
       )}
     </>
   );

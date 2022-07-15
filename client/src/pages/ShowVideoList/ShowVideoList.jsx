@@ -1,9 +1,10 @@
+import moment from "moment";
 import React from "react";
 import { useSelector } from "react-redux";
 import ShowVideo from "../ShowVideo/ShowVideo";
 // import vid from "../../components/Video/vid.mp4";
 
-function ShowVideoList({ videoId }) {
+function ShowVideoList({ videoId, date }) {
   const vids = useSelector((state) => state.videoReducer);
   // console.log(showListedVideo);
 
@@ -41,6 +42,7 @@ function ShowVideoList({ videoId }) {
               return (
                 <div className="video_box">
                   <ShowVideo vid={vi} />
+                  {date && <i className="ViewedOn_history">Viewed On : {moment(date).format("DD/MM/YYYY")}</i>}
                 </div>
               );
             })}

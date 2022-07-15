@@ -15,6 +15,7 @@ export const historyController = async (req, res) => {
     }
 }
 
+
 export const getHistory = async (req, res, next) => {
     try {
       const files = await history.find();
@@ -23,3 +24,15 @@ export const getHistory = async (req, res, next) => {
       res.status(400).send(error.message);
     }
   };
+
+  
+export const clearhistory = async (req, res) => {
+  const {userId:userId} = req.params;
+  console.log(userId)
+  try {
+      await history.deleteMany({userId:userId});
+       res.status(200).json({ message: "Removed From Your likedVideo Successfully  ..." })
+  } catch (error) {
+      res.status(400).json({ message: error.message })
+  }
+}

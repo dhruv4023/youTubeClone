@@ -1,38 +1,47 @@
-.det{
-    margin: 0;
-    display: flex;
-    padding: 0.5rem;
-    justify-content: space-around;
+.det {
+  margin: 0;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-around;
 }
 
 .box_WHL {
-    /* border: 2px solid red; */
-    width: 45%;
-    padding: 0.8rem;
-    margin: 0.8rem;
-    color: whitesmoke;
-    display: flex;
-    flex-direction: column;
+  /* border: 2px solid red; */
+  width: 45%;
+  padding: 0.8rem;
+  margin: 0.8rem;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+    /* height: calc(100vh - 3rem); */
 }
-
+.whlList {
+  overflow-y: auto;
+}
 .box_WHL b {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .box_WHL h1 {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-.clear_HistoryBtn:hover{
-    color: ghostwhite;
+.clear_HistoryBtn:hover {
+  color: ghostwhite;
 }
-.clear_HistoryBtn{
-    color: grey;
-    font-size: 1.5rem;
-    cursor: pointer;
-    font-weight: bolder;
-    margin: auto 0;
+.clear_HistoryBtn {
+  color: grey;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: bolder;
+  margin: auto 0;
 }
-.leftside_whl{
-    background-color: rgba(0, 0, 0, 0.153);
-    height: 50vh;
+.leftside_whl {
+  background-color: rgba(0, 0, 0, 0.153);
+  height: 50vh;
+}
+
+.ViewedOn_history {
+  font-size: small;
+  padding: 0.2rem 3.5rem;
+  color: rgba(229, 243, 167, 0.33);
 }
