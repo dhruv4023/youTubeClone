@@ -11,6 +11,7 @@ import { GoogleLogin } from "react-google-login";
 import { login } from "../../actions/auth";
 import { gapi } from "gapi-script";
 import { useEffect } from "react";
+import { BiUserCircle } from "react-icons/bi";
 // function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
 function Navbar({ wdtToggle, handleEditChanel }) {
   const dispatch = useDispatch();
@@ -99,6 +100,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
                 onFailure={onFailure}
                 render={(renderProps) => (
                   <p onClick={renderProps.onClick} className="Auth_Btn">
+                    <BiUserCircle size={20}/>
                     <b>Sign In</b>
                   </p>
                 )}

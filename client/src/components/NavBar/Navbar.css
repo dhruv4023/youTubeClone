@@ -80,22 +80,27 @@
   cursor: pointer;
   margin: auto;
   padding: 0.5rem;
-  color: rgb(128, 128, 241);
+  color: #3ea6ff;
   background-color: rgb(36, 36, 36);
   border-radius: 0.5rem;
   border: 2px solid;
 }
 .Auth_Btn:hover {
-  color: aqua;
+  color: rgb(33, 111, 237);
 }
 .Auth_Conatiner_navbar {
-  width: 5rem;
-  margin: auto 0;
+  width: fit-content;
+  margin: auto 0.5rem;
   display: flex;
 }
 
-@media (max-width:500px){
+@media (max-width: 550px) {
+  .Auth_Btn b,
   .logo_Navbar p {
     display: none;
   }
+  /* .Auth_Conatiner_navbar{
+    w;
+  } */
+  
 }

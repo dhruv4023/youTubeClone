@@ -45,3 +45,8 @@
   padding: 0.2rem 3.5rem;
   color: rgba(229, 243, 167, 0.33);
 }
+@media (max-width:800px){
+  .leftside_whl{
+    display: none;
+  }
+}

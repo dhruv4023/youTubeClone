@@ -58,3 +58,10 @@
   font-weight: bolder;
   color: antiquewhite;
 }
+
+@media (max-width:450px){
+  .video_ShowVideo {
+    width: calc(100% - 1rem);
+    height: 70%;
+  }
+}

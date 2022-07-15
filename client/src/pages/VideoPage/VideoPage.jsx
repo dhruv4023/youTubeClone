@@ -84,7 +84,7 @@ function VideoPage({ wdt }) {
             <div className="video_tittle_like_watchlater_btn">
               <p>{vv.videoTitle}</p>
               <div>
-                <p>{vv.Views} views</p>
+                <p className="views_videopage">{vv.Views} views</p>
 
                 <LikeWatchLater_BTN vv={vv} vid={vid} />
               </div>
