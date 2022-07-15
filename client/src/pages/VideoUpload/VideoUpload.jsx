@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../actions/video";
 import "./VideoUpload.css";
-// import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 // import { uploadVideo } from "../../api";
 
 function VideoUpload({ setUploadVideo }) {
@@ -93,7 +93,7 @@ function VideoUpload({ setUploadVideo }) {
           />
         </div>
         <div className="loader ibox_div_uploadVid">
-          {/* <CircularProgressbar
+          <CircularProgressbar
             value={singleProgress}
             text={`${singleProgress}%`}
             styles={buildStyles({
@@ -107,7 +107,7 @@ function VideoUpload({ setUploadVideo }) {
               backgroundColor: "#3e98c7",
             })} 
           />
-            */}
+           
         </div>
       </div>
     </div>

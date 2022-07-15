@@ -9,10 +9,10 @@
 .container2_VideoUpload {
     box-shadow: 2px 2px rgba(142, 141, 141, 0.681),-2px -2px rgba(142, 141, 141, 0.681);
   padding: 1rem;
-  width: 20rem;
-  height: 20rem;
+  width: fit-content;
+  height: fit-content;
   background-color: black;
-  color: wheat;
+  color: rgb(136, 133, 129);
   position: relative;
   margin: auto;
   display: flex;
@@ -20,26 +20,28 @@
   border-radius: 1rem;
 }
 .loader {
-  width: 10rem;
-  height: 10rem;
-  /* padding: 0.2rem; */
+  width: 7rem;
+  height: 7rem;
+  padding: 2rem 0;
   /* border: 2px solid wheat; */
 }
 .ibox_vidUpload {
   margin: 0.5rem;
   font-size: larger;
   border-radius: 5px;
+  background-color: transparent;
   padding: 0.2rem;
+  width: calc(100% - 2rem );
 }
 .ibox_div_uploadVid {
   display: flex;
-  flex-direction: column;
-  /* border: 1px solid red; */
+  align-items: center;
+  flex-direction: column;background-color: transparent;
   width: 100%;
 }
 .btn_vidUpload{
     background-color: black;
-    color: white;
+    color: rgba(255, 255, 255, 0.647);
     font-weight: bolder;
     border: 2px solid;
     box-shadow: 1px 0px white;

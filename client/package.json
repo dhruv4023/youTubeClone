@@ -10,6 +10,7 @@
     "gapi-script": "^1.2.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.4.0",

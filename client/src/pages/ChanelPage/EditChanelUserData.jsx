@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserData } from "../../actions/user";
 import "./editChanel.css";
+
+import "../Auth/loginSignupPage.css";
 function EditChanelUserData({ setEditChanel }) {
   const dispatch = useDispatch();
 
