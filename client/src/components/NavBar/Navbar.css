@@ -1,5 +1,6 @@
 .burger_logo {
   display: flex;
+  /* flex-grow: ; */
 }
 
 .logo_Navbar p {
@@ -22,16 +23,15 @@
 }
 
 .search_div {
+  margin: auto 1rem;
   display: flex;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 3rem;
   height: 2rem;
+  flex-grow: 2;
 }
 
 .Search_Navbar {
   background-color: rgb(54, 53, 53);
-  width: 30rem;
+  width: 90%;
   border: 0px;
   color: white;
   padding: 0.3rem;
@@ -70,8 +70,8 @@
 }
 
 .burger p {
-  margin: 1px;
-  width: 2rem;
+  margin: 0.5px;
+  width: 1.2rem;
   height: 0.2rem;
   background-color: rgba(255, 255, 255, 0.781);
 }
@@ -92,4 +92,10 @@
   width: 5rem;
   margin: auto 0;
   display: flex;
+}
+
+@media (max-width:500px){
+  .logo_Navbar p {
+    display: none;
+  }
 }

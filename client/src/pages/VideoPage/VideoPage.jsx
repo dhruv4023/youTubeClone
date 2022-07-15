@@ -13,7 +13,7 @@ import LikeWatchLater_BTN from "./LikeWatchLater_BTN";
 import { viewVideo } from "../../actions/video";
 import Comment from "../../components/Comments/Comment";
 import MoreVideos from "./MoreVideos";
-import moment from "moment";
+// import moment from "moment";
 
 function VideoPage({ wdt }) {
   const { vid } = useParams();

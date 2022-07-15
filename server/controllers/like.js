@@ -5,7 +5,7 @@ import mongoose from "mongoose"
 export const likeController = async (req, res) => {
     const { id: _id } = req.params;
     const { Like } = req.body;
-    console.log(_id,Like)
+    // console.log(_id,Like)
     if (!mongoose.Types.ObjectId.isValid(_id)) {
         return res.status(404).send('Video unavailable...')
     }

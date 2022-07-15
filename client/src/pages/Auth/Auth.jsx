@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./Auth.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import { Link } from "react-router-dom";
-function Auth({ User, handleEditChanel,  setAuthBtn }) {
+import { BiLogOut } from "react-icons/bi";
+import { GoogleLogout } from "react-google-login";
+function Auth({ User, handleEditChanel, setAuthBtn }) {
   // const user = null;
   const dispatch = useDispatch();
   // const User = {
@@ -17,13 +19,16 @@ function Auth({ User, handleEditChanel,  setAuthBtn }) {
   //     _id: "62bafe6752cea35a6c30685f",
   //   },
   // };
-  const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
-    dispatch(setCurrentUser(null));
+  // const handleLogout = () => {
+  //   dispatch({ type: "LOGOUT" });
+  //   dispatch(setCurrentUser(null));
+  // };
+  const onLogoutSuccess = () => {
+    alert("Log out Succesfully");
   };
   return (
     <>
-      <div className="Auth_cont" onClick={()=>setAuthBtn(false)}>
+      <div className="Auth_cont" onClick={() => setAuthBtn(false)}>
         <div className="Auth_cont2">
           <p className="User_Details_Auth">
             <div className="Chanel_logo_App">
@@ -50,12 +55,26 @@ function Auth({ User, handleEditChanel,  setAuthBtn }) {
                 value="Create Your Chanel"
               />
             )}
-            <input
-              type="submit"
-              className="btn_Auth"
-              onClick={() => handleLogout()}
-              value="Log out"
-            />
+            <div>
+              <GoogleLogout
+                clientId={
+                  "756719838452-cn65r0g4adi05jnqtff6csbscgv5urfv.apps.googleusercontent.com"
+                }
+                render={(renderProps) => (
+                  <div onClick={renderProps.onClick} className="btn_Auth">
+                    <BiLogOut />
+                    Log Out
+                  </div>
+                  //  <button onClick={renderProps.onClick} style={customStyle}>This is my custom Google button</button>
+                )}
+                onLogoutSuccess={onLogoutSuccess}
+              />
+              {/* <input
+                type="submit"
+                onClick={() => handleLogout()}
+                value="Log out"
+              /> */}
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from "./components/NavBar/Navbar";
-import LoginSignupPage from "./pages/Auth/loginSignupPage";
+// import LoginSignupPage from "./pages/Auth/loginSignupPage";
 import { BrowserRouter as Router } from "react-router-dom";
 import React,{ useEffect } from "react";
 import { useState } from "react";
@@ -51,15 +51,15 @@ function App() {
       });
   };
 
-  const [loginPage, setLoginPage] = useState(false);
   const [uploadVideo, setUploadVideo] = useState(false);
   const [EditChanel, setEditChanel] = useState(false);
+  // const [loginPage, setLoginPage] = useState(false);
   // const [login, setLogin] = useState(true);
 
-  const handleLogin = () => {
-    // setLogin(true);
-    setLoginPage(true);
-  };
+  // const handleLogin = () => {
+  //   // setLogin(true);
+  //   setLoginPage(true);
+  // };
 
   const handleUpload = () => {
     // console.log(uploadVideo)
@@ -77,17 +77,17 @@ function App() {
     <Router>
         <div className="App">
           
-          {loginPage && (
+          {/* {loginPage && (
             <LoginSignupPage
               setLoginPage={setLoginPage}
             />
-          )}
+          )} */}
 
           {uploadVideo && <VideoUpload setUploadVideo={setUploadVideo} />}
           {EditChanel && <EditChanelUserData setEditChanel={setEditChanel} />}
           <Navbar
             wdtToggle={wdtToggle}
-            setLoginPage={setLoginPage}
+            // setLoginPage={setLoginPage}
             handleEditChanel={handleEditChanel}
             
           />

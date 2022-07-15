@@ -2,12 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FaSearch } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import logo from "./logo.ico";
 import Auth from "../../pages/Auth/Auth";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { GoogleLogin } from "react-google-login";
+import { login } from "../../actions/auth";
 import { gapi } from "gapi-script";
-function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
+import { useEffect } from "react";
+// function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
+function Navbar({ wdtToggle, handleEditChanel }) {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUserReducer);
   // const currentUser = {
   //   result: {
@@ -17,7 +23,26 @@ function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
   // };
   // console.log(currentUser);
   const [AuthBtn, setAuthBtn] = useState(false);
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:
+          "756719838452-cn65r0g4adi05jnqtff6csbscgv5urfv.apps.googleusercontent.com",
+        scope: "email",
+      });
+    }
+    gapi.load("client:auth2", start);
+  }, []);
 
+  const onSuccess = (response) => {
+    const Email = response?.profileObj.email;
+
+    dispatch(login({ email: Email }));
+    // setLoginPage(false);
+  };
+  const onFailure = (response) => {
+    console.log("FAILED", response);
+  };
 
   return (
     <>
@@ -63,10 +88,21 @@ function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
             </>
           ) : (
             <>
-              <p onClick={() => setLoginPage(true)} className="Auth_Btn">
-                Sign In
-              </p>
-
+              {/* <p onClick={() => setLoginPage(true)} className="Auth_Btn">
+                <b>Sign In</b>
+              </p> */}
+              <GoogleLogin
+                clientId={
+                  "756719838452-cn65r0g4adi05jnqtff6csbscgv5urfv.apps.googleusercontent.com"
+                }
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                render={(renderProps) => (
+                  <p onClick={renderProps.onClick} className="Auth_Btn">
+                    <b>Sign In</b>
+                  </p>
+                )}
+              />
             </>
           )}
         </div>
