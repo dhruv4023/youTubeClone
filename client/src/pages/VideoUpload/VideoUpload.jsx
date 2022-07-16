@@ -50,7 +50,7 @@ function VideoUpload({ setUploadVideo }) {
           singleFileOptions,
         })
       );
-        setUploadVideo(false)
+        // setUploadVideo(false)
     }
   };
 

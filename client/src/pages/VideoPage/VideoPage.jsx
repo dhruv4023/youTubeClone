@@ -77,8 +77,9 @@ function VideoPage({ wdt }) {
             key={vv._id}
             className="video_ShowVideo_VideoPage"
             // src={vv.video_src}
+            src={`${process.env.REACT_APP_SERVER}/${vv.filePath}`}
             // src={`https://youtubeclone4023.herokuapp.com/${vv.filePath}`}
-            src={`http://localhost:5500/${vv.filePath}`}
+            // src={`http://localhost:5500/${vv.filePath}`}
             controls
           />
           <div className="video_details_VideoPage">

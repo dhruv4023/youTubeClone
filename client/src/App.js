@@ -1,8 +1,8 @@
-import './App.css'
+import "./App.css";
 import Navbar from "./components/NavBar/Navbar";
 // import LoginSignupPage from "./pages/Auth/loginSignupPage";
 import { BrowserRouter as Router } from "react-router-dom";
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import AllRoutes from "./components/AllRoutes";
 import VideoUpload from "./pages/VideoUpload/VideoUpload";
@@ -73,11 +73,9 @@ function App() {
   };
 
   return (
-
-   <>
-    <Router>
+    <>
+      <Router>
         <div className="App">
-          
           {/* {loginPage && (
             <LoginSignupPage
               setLoginPage={setLoginPage}
@@ -90,16 +88,15 @@ function App() {
             wdtToggle={wdtToggle}
             // setLoginPage={setLoginPage}
             handleEditChanel={handleEditChanel}
-            
           />
           <AllRoutes
             wdt={sdwidth}
             handleUpload={handleUpload}
             handleEditChanel={handleEditChanel}
-          />    
+          />
         </div>
       </Router>
-   </>
+    </>
   );
 }
 

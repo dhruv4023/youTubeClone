@@ -1,7 +1,8 @@
 import axios from 'axios'
 
+const API = axios.create({ baseURL: `${process.env.REACT_APP_SERVER}` })
 // const API = axios.create({ baseURL: 'https://youtubeclone4023.herokuapp.com' })
-const API = axios.create({ baseURL: 'http://localhost:5500' })
+// const API = axios.create({ baseURL: 'http://localhost:5500' })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('Profile')) {
