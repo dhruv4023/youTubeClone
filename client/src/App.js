@@ -51,7 +51,7 @@ function App() {
         },
       });
   };
-
+console.log(`${process.env.REACT_APP_SERVER}`)
   const [uploadVideo, setUploadVideo] = useState(false);
   const [EditChanel, setEditChanel] = useState(false);
   // const [loginPage, setLoginPage] = useState(false);

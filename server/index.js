@@ -37,9 +37,8 @@ app.use('/comments',commentRoutes)
 
 const PORT = process.env.PORT || 5500
 
-// const DB_URL= process.env.CONNECTION_URL
+const DB_URL= process.env.CONNECTION_URL
 
-const DB_URL= "mongodb://localhost:27017/youTubeClone"
 
 
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
