@@ -1,10 +1,15 @@
 import React from "react";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiFillPlaySquare, AiOutlineHome } from "react-icons/ai";
 import { FaHistory } from "react-icons/fa";
-
 import {
-  AiFillLike,
-} from "react-icons/ai";
+  MdOutlineExplore,
+  MdOutlineVideoLibrary,
+  MdOutlineSubscriptions,
+} from "react-icons/md";
+
+import shorts from "./youtube-shorts.png";
+// import short from './youtube-shorts.svg'
+import { AiFillLike } from "react-icons/ai";
 
 import { MdOutlineWatchLater } from "react-icons/md";
 import { NavLink } from "react-router-dom";
@@ -12,80 +17,143 @@ import "./LeftSidebar.css";
 function LeftSidebar({ wdt }) {
   return (
     <div className="container_sidebar" style={{ width: `${wdt.sdbar.width}` }}>
-      {(wdt.sdbar.width === "5rem" && wdt.sdbar.display === "none") ? (
+      {wdt.sdbar.width === "5rem" && wdt.sdbar.display === "none" ? (
         <>
           <NavLink to={"/"} className="icon_sidebar_div">
             <AiOutlineHome size={30} className="icon_sidebar" />
             <b>Home</b>
           </NavLink>
 
-          <NavLink to={"/history"} className="icon_sidebar_div">
-            <FaHistory size={30} className="icon_sidebar" />
-            <b>History</b>
-          </NavLink>
+          <div className="icon_sidebar_div">
+            <MdOutlineExplore size={30} className="icon_sidebar" />
+            <b>Explore</b>
+          </div>
 
-          <NavLink to={"/watchlater"} className="icon_sidebar_div">
-            <MdOutlineWatchLater size={30} className="icon_sidebar" />
-            <b>Watch Later</b>
-          </NavLink>
+          <div className="icon_sidebar_div">
+            <AiFillPlaySquare size={30} className="icon_sidebar" />
+            <b>Shorts</b>
+          </div>
 
-          <NavLink to={"/likedvideo"} className="icon_sidebar_div">
-            <AiFillLike size={30} className="icon_sidebar" />
-            <b>Liked Video</b>
-          </NavLink>
-
+          <div className="icon_sidebar_div">
+            <MdOutlineSubscriptions size={30} className="icon_sidebar" />
+            <b style={{ fontSize: "10px" }}>Subcriptions</b>
+          </div>
+          <div className="icon_sidebar_div">
+            <MdOutlineVideoLibrary size={30} className="icon_sidebar" />
+            <b>Library</b>
+          </div>
         </>
       ) : (
         <>
-          <NavLink to={"/"} className="icon_sidebar_div">
-            <p>
-              <AiOutlineHome
-                size={20}
-                className="icon_sidebar"
-                style={{ margin: "auto 0" }}
-              />
-              <b>Home</b>
-            </p>
-          </NavLink>
-          <NavLink to={"/history"} className="icon_sidebar_div">
-            <p>
-              <FaHistory
-                size={20}
-                className="icon_sidebar"
-                style={{ margin: "auto 0" }}
-              />
-              <b>History</b>
-            </p>
-          </NavLink>
-          <NavLink to={"/watchlater"} className="icon_sidebar_div">
-            <p>
-              <MdOutlineWatchLater
-                size={20}
-                className="icon_sidebar"
-                style={{ margin: "auto 0" }}
-              />
-              <b>Watch Later</b>
-            </p>
-          </NavLink>
-          <NavLink to={"/likedvideo"} className="icon_sidebar_div">
-            <p>
-              <AiFillLike
-                size={20}
-                className="icon_sidebar"
-                style={{ margin: "auto 0" }}
-              />
-              <b>Liked Video</b>
-            </p>
-          </NavLink>
-          {/* <div className="subCriptions_lsdbar">
+          <div className="HESS_leftSidebar">
+            <NavLink to={"/"} className="icon_sidebar_div">
+              <p>
+                <AiOutlineHome
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Home</b>
+              </p>
+            </NavLink>
+            <div className="icon_sidebar_div">
+              <p>
+                <MdOutlineExplore
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Explore</b>
+              </p>
+            </div>
+            <div className="icon_sidebar_div">
+              <p>
+                <AiFillPlaySquare
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Shorts</b>
+              </p>
+            </div>
+            <div className="icon_sidebar_div">
+              <p>
+                <MdOutlineSubscriptions
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Subcriptions</b>
+              </p>
+            </div>
+          </div>
+          <div className="libraryBtn_leftSidebar">
+            <div  className="icon_sidebar_div">
+              <p>
+                <MdOutlineVideoLibrary
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Library</b>
+              </p>
+            </div>
+            <NavLink to={"/history"} className="icon_sidebar_div">
+              <p>
+                <FaHistory
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>History</b>
+              </p>
+            </NavLink>
+            <div className="icon_sidebar_div">
+              <p>
+                <AiFillPlaySquare
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Your Videos</b>
+              </p>
+            </div>
+            <NavLink to={"/watchlater"} className="icon_sidebar_div">
+              <p>
+                <MdOutlineWatchLater
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Watch Later</b>
+              </p>
+            </NavLink>
+            <NavLink to={"/likedvideo"} className="icon_sidebar_div">
+              <p>
+                <AiFillLike
+                  size={20}
+                  className="icon_sidebar"
+                  style={{ margin: "auto 0" }}
+                />
+                <b>Liked Video</b>
+              </p>
+            </NavLink>
+          </div>
+          <div className="subCriptions_lsdbar">
             <h3>Your Subcription</h3>
             <div className="chanel_lsdbar">
-              <p>C</p><div>Chanel nm</div>
+              <p>C</p>
+              <div>Chanel nm</div>
             </div>
             <div className="chanel_lsdbar">
-              <p>C</p><div>Chanel nm</div>
+              <p>C</p>
+              <div>Chanel nm</div>
             </div>
-          </div> */}
+            <div className="chanel_lsdbar">
+              <p>C</p>
+              <div>Chanel nm</div>
+            </div>
+          </div>
         </>
       )}
     </div>

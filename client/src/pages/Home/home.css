@@ -3,3 +3,14 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.navigation_Home{
+    color: white;
+    display: flex;
+    overflow-x: auto;
+}
+.btn_home_nav{
+    background-color: grey;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 45px;
+}

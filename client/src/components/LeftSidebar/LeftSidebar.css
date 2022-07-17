@@ -3,6 +3,8 @@
     /* width: 20rem; */
     height: calc(100vh - 3rem);
     box-sizing: border-box;
+    /* margin-right: 0.8rem; */
+    overflow-y: auto;
 }
 
 .subCriptions_lsdbar h3 {
@@ -39,7 +41,7 @@ color: rgb(77, 77, 243);
 .icon_sidebar_div:hover,
 .icon_sidebar_div.active {
     color: aliceblue;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(68, 68, 68);
 }
 
 .icon_sidebar_div p {
@@ -54,7 +56,7 @@ color: rgb(77, 77, 243);
 
 .icon_sidebar_div {
     cursor: pointer;
-    color: rgb(144, 144, 144);
+    color: rgba(255, 255, 255, 0.848);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -63,4 +65,8 @@ color: rgb(77, 77, 243);
 
 .icon_sidebar {
     margin: auto;
+}
+
+.HESS_leftSidebar,.libraryBtn_leftSidebar{
+    border-bottom: 2px solid rgba(128, 128, 128, 0.293);
 }
