@@ -7,7 +7,7 @@ import {
   MdOutlineSubscriptions,
 } from "react-icons/md";
 
-import shorts from "./youtube-shorts.png";
+import shorts from "./shorts.png";
 // import short from './youtube-shorts.svg'
 import { AiFillLike } from "react-icons/ai";
 
@@ -30,7 +30,8 @@ function LeftSidebar({ wdt }) {
           </div>
 
           <div className="icon_sidebar_div">
-            <AiFillPlaySquare size={30} className="icon_sidebar" />
+            <img src={shorts} width={30} className="icon_sidebar" alt="" />
+            {/* <AiFillPlaySquare size={30}  /> */}
             <b>Shorts</b>
           </div>
 
@@ -68,11 +69,13 @@ function LeftSidebar({ wdt }) {
             </div>
             <div className="icon_sidebar_div">
               <p>
-                <AiFillPlaySquare
+              <img src={shorts} width={20} style={{ margin: "auto 0" }} className="icon_sidebar" alt="" />
+          
+                {/* <AiFillPlaySquare
                   size={20}
                   className="icon_sidebar"
                   style={{ margin: "auto 0" }}
-                />
+                /> */}
                 <b>Shorts</b>
               </p>
             </div>
