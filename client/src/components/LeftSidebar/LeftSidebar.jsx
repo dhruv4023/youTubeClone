@@ -38,10 +38,10 @@ function LeftSidebar({ wdt }) {
             <MdOutlineSubscriptions size={30} className="icon_sidebar" />
             <b style={{ fontSize: "10px" }}>Subcriptions</b>
           </div>
-          <div className="icon_sidebar_div">
+          <NavLink to={"/library"} className="icon_sidebar_div">
             <MdOutlineVideoLibrary size={30} className="icon_sidebar" />
             <b>Library</b>
-          </div>
+          </NavLink>
         </>
       ) : (
         <>
@@ -87,8 +87,8 @@ function LeftSidebar({ wdt }) {
               </p>
             </div>
           </div>
-          <div className="libraryBtn_leftSidebar">
-            <div  className="icon_sidebar_div">
+          <div  className="libraryBtn_leftSidebar">
+            <NavLink to={"/library"}   className="icon_sidebar_div">
               <p>
                 <MdOutlineVideoLibrary
                   size={20}
@@ -97,7 +97,7 @@ function LeftSidebar({ wdt }) {
                 />
                 <b>Library</b>
               </p>
-            </div>
+            </NavLink>
             <NavLink to={"/history"} className="icon_sidebar_div">
               <p>
                 <FaHistory
@@ -108,7 +108,7 @@ function LeftSidebar({ wdt }) {
                 <b>History</b>
               </p>
             </NavLink>
-            <div className="icon_sidebar_div">
+            <NavLink to={"/yourvideo"}  className="icon_sidebar_div">
               <p>
                 <AiFillPlaySquare
                   size={20}
@@ -117,7 +117,7 @@ function LeftSidebar({ wdt }) {
                 />
                 <b>Your Videos</b>
               </p>
-            </div>
+            </NavLink>
             <NavLink to={"/watchlater"} className="icon_sidebar_div">
               <p>
                 <MdOutlineWatchLater

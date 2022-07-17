@@ -93,27 +93,67 @@
   margin: auto 0.5rem;
   display: flex;
 }
-.mic_Navbar{
+.mic_Navbar,
+.vid_bell_Navbar {
   color: whitesmoke;
-  margin: auto 0.4rem;
+  margin: auto 0.5rem;
 }
 .box_apps {
-  border: 1px solid white;
-  width: 2rem;
+  /* border: 1px solid white; */
+  width: 30px;
   margin: auto 0;
-  height: 2rem;
+  height: 30px;
   grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.box_app{
-  border: 1px solid white;
-  margin: 0;
-  width: 2px;
-  height: 2px;
+.searchBar_Navbar_Mobile {
+  background-color: rgb(26, 25, 25);
+  position: absolute;
+  width: 100vw;
+  height: calc(3rem - 2px);
+  top: 0;
+  left: 0;
+  display: none;
+  padding: 0.3rem;
 }
-@media (max-width: 550px) {
+.Search_Navbar_Mobile {
+  height: 1.6rem;
+  border-radius: 5px;
+  padding-left: 1%;
+  width: 79%;
+}
+.box_app {
+  border: 2px solid white;
+  margin: 0.15rem;
+  width: 0.5px;
+  height: 0.5px;
+}
+.X_SEacrbar_mobile {
+  color: white;
+  margin: auto 1rem;
+  font-size: x-large;
+  font-weight: bolder;
+}
+.Mobile {
+  display: none;
+}
+@media (max-width: 715px) {
   .Auth_Btn b,
   .logo_Navbar p {
     display: none;
+  }
+  .Search_Navbar_Mobile {
+    display: flex;
+  }
+  .Search_Navbar,
+  .mic_Navbar,
+  .searchIcon_Navbar {
+    display: none;
+  }
+  .Mobile {
+    display: block;
   }
   /* .Auth_Conatiner_navbar{
     w;

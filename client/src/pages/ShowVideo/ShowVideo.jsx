@@ -6,13 +6,13 @@ import moment from "moment";
 
 function ShowVideo({ vid }) {
   const chanels = useSelector((state) => state?.currentUserProfileReducer);
-  // console.log(vid);
+  console.log(vid);
 
   const currentChanel = chanels?.filter((c) => c?._id === vid?.videoChanel)[0];
 
   return (
     <>
-      <Link to={`/VideoPage/${vid._id}`}>
+      <Link to={`/VideoPage/${vid?._id}`}>
         <video
           src={`${process.env.REACT_APP_SERVER}/${vid.filePath}`}
           // src={`https://youtubeclone4023.herokuapp.com/${vid.filePath}`}
@@ -31,7 +31,7 @@ function ShowVideo({ vid }) {
           ) : (
             <>
               <div className="chanel_logo">
-                <p>{vid?.Uploder.charAt(0).toUpperCase()}</p>
+                <p>{vid?.Uploder?.charAt(0).toUpperCase()}</p>
               </div>
             </>
           )}

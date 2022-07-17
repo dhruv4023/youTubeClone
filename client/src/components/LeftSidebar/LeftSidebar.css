@@ -70,3 +70,9 @@ color: rgb(77, 77, 243);
 .HESS_leftSidebar,.libraryBtn_leftSidebar{
     border-bottom: 2px solid rgba(128, 128, 128, 0.293);
 }
+/* 
+@media(max-width:450px){
+    .container_sidebar{
+        display: none;
+    }
+} */

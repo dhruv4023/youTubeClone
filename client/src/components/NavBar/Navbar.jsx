@@ -13,8 +13,8 @@ import { gapi } from "gapi-script";
 import { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { BsMicFill } from "react-icons/bs";
-import {  IoMdNotificationsOutline } from "react-icons/io";
-import {  RiVideoAddLine } from "react-icons/ri";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { RiVideoAddLine } from "react-icons/ri";
 // function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
 function Navbar({ wdtToggle, handleEditChanel }) {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
   // const currentUser = {
   //   result: {
   //     email: "xyz@mail.com",
-  //     joinedOn: "2022-07-15T09:57:23.489Z",
+  //     joinedOn: "2222-07-15T09:57:23.489Z",
   //   },
   // };
   // console.log(currentUser);
@@ -48,6 +48,19 @@ function Navbar({ wdtToggle, handleEditChanel }) {
     console.log("FAILED", response);
   };
 
+  const [searchMobile, setSearchMobile] = useState({ display: "none" });
+  const searchMobileToggle = () => {
+    if (searchMobile.display === "none") {
+      setSearchMobile({
+        display: "block",
+      });
+    } else {
+      setSearchMobile({
+        display: "none",
+      });
+    }
+  };
+
   return (
     <>
       <div className="container_Navbar">
@@ -58,7 +71,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
             <p></p>
           </div>
           <Link to={"/"} className="logo_Navbar">
-            <img src={logo} width={50} alt="" />
+            <img src={logo} width={40} alt="" />
             <p>YouTube</p>
           </Link>
         </div>
@@ -68,13 +81,36 @@ function Navbar({ wdtToggle, handleEditChanel }) {
             className="Search_Navbar"
             placeholder="Search..."
           />
-          <div>
-            <FaSearch className="searchIcon_Navbar" />
+          <div className="searchBar_Navbar_Mobile" style={searchMobile}>
+            <div className="search_div">
+              <input
+                type="text"
+                className="Mobile Search_Navbar"
+                placeholder="Search..."
+              />
+              <div>
+                <FaSearch className="searchIcon_Navbar Mobile" />
+              </div>
+              <BsMicFill size={20} className="mic_Navbar Mobile" />
+              <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
+                X
+              </div>
+            </div>
           </div>
-          <BsMicFill size={22} className="mic_Navbar"/>
+          <div>
+            <FaSearch
+              className="searchIcon_Navbar"
+            />
+          </div>
+          <BsMicFill size={20} className="mic_Navbar" />
         </div>
-        <RiVideoAddLine size={30} className="mic_Navbar"/>
-        <IoMdNotificationsOutline size={30} className="mic_Navbar"/>
+        <FaSearch
+              className="vid_bell_Navbar Mobile"
+              size={20}
+              onClick={searchMobileToggle}
+            />
+        <RiVideoAddLine size={22} className="vid_bell_Navbar" />
+        <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
         <div className="box_apps">
           <p className="box_app"></p>
           <p className="box_app"></p>
@@ -117,7 +153,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
                 onFailure={onFailure}
                 render={(renderProps) => (
                   <p onClick={renderProps.onClick} className="Auth_Btn">
-                    <BiUserCircle size={20} />
+                    <BiUserCircle size={22} />
                     <b>Sign In</b>
                   </p>
                 )}

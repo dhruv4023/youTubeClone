@@ -4,10 +4,8 @@ import ShowVideo from "../ShowVideo/ShowVideo";
 // import { getVideos } from "../../actions/video";
 import { useSelector } from "react-redux";
 
-function ShowVideoGrid({ Cid }) {
-  const vids = useSelector((state) => state.videoReducer);
-
-  // console.log(vids);
+function ShowVideoGrid({ vids }) {
+  console.log(vids);
 
   // const vids = [
   //   {
@@ -35,29 +33,14 @@ function ShowVideoGrid({ Cid }) {
 
   return (
     <div className="container_home">
-      {Cid ? (
-        <>
-          {vids?.data?.filter(q=>q.videoChanel===Cid).reverse().map((vi) => {
-            // console.log(vi)
-            return (
-              <div className="video_box" key={vi._id}>
-                <ShowVideo  vid={vi} />
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <>
-          {vids?.data?.filter(q=>q).reverse().map((vi) => {
-            // console.log(vi)
-            return (
-              <div key={vi._id} className="video_box">
-                <ShowVideo  vid={vi} morVid={vids} />
-              </div>
-            );
-          })}
-        </>
-      )}
+      {vids?.map((vi) => {
+        // console.log(vi)
+        return (
+          <div key={vi._id} className="video_box">
+            <ShowVideo vid={vi}  />
+          </div>
+        );
+      })}
     </div>
   );
 }
