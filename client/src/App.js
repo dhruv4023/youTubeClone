@@ -51,6 +51,16 @@ function App() {
         },
       });
   };
+  const offLeftSideBar=()=>{
+    if(sdwidth.sdbar.display === "block"){
+      setSdWidth({
+        sdbar: {
+          width:"15rem",
+          display: "none",
+        },
+      });
+    }
+  }
 console.log(`${process.env.REACT_APP_SERVER}`)
   const [uploadVideo, setUploadVideo] = useState(false);
   const [EditChanel, setEditChanel] = useState(false);
@@ -91,6 +101,7 @@ console.log(`${process.env.REACT_APP_SERVER}`)
           />
           <AllRoutes
             wdt={sdwidth}
+            offLeftSideBar={offLeftSideBar}
             handleUpload={handleUpload}
             handleEditChanel={handleEditChanel}
           />

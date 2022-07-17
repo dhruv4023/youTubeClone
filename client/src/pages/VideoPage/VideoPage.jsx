@@ -15,7 +15,7 @@ import Comment from "../../components/Comments/Comment";
 import MoreVideos from "./MoreVideos";
 // import moment from "moment";
 
-function VideoPage({ wdt }) {
+function VideoPage({ wdt, offLeftSideBar }) {
   const { vid } = useParams();
   const vids = useSelector((state) => state.videoReducer);
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function VideoPage({ wdt }) {
     // console.log(vw);
     dispatch(
       viewVideo({
-        id: vid
+        id: vid,
       })
     );
   };
@@ -64,7 +64,7 @@ function VideoPage({ wdt }) {
   // console.log(vvv)
   return (
     <>
-      <div className="container_VideoPage">
+      <div className="container_VideoPage" onClick={() => offLeftSideBar()}>
         <div
           className="sidebar_on_nonSidebarPage"
           style={{ display: `${wdt.sdbar.display}` }}

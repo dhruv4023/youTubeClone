@@ -84,6 +84,11 @@
 .comments_videoPage {
   width: 70vw;
 }
+.sidebar_on_nonSidebarPage{
+  background-color: transparent;
+  width: 100%;
+  height: calc(100vh - 3rem);
+}
 
 @media (max-width: 1150px) {
   .video_ShowVideo_VideoPage {

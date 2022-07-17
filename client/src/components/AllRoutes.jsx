@@ -7,16 +7,20 @@ import WatchLater from "../pages/WatchLater/WatchLater";
 import Chanel from "../pages/ChanelPage/Chanel";
 import LikedVideo from "../pages/LikedVideo/LikedVideo";
 
-function AllRoutes({ wdt, handleUpload, handleEditChanel }) {
+function AllRoutes({ wdt, handleUpload, handleEditChanel,
+  offLeftSideBar }) {
   return (
     <Routes>
       {/* <h1>HELLO</h1> */}
-      
+
       <Route path="/" element={<Home wdt={wdt} />} />
       <Route path="/history" element={<WatchHistory wdt={wdt} />} />
       <Route path="/watchLater" element={<WatchLater wdt={wdt} />} />
       <Route path="/likedvideo" element={<LikedVideo wdt={wdt} />} />
-      <Route path="/VideoPage/:vid" element={<VideoPage wdt={wdt} />} />
+      <Route
+        path="/VideoPage/:vid"
+        element={<VideoPage wdt={wdt} offLeftSideBar={offLeftSideBar} />}
+      />
 
       <Route
         path="/chanel/:Cid"
