@@ -12,6 +12,9 @@ import { login } from "../../actions/auth";
 import { gapi } from "gapi-script";
 import { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
+import { BsMicFill } from "react-icons/bs";
+import {  IoMdNotificationsOutline } from "react-icons/io";
+import {  RiVideoAddLine } from "react-icons/ri";
 // function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
 function Navbar({ wdtToggle, handleEditChanel }) {
   const dispatch = useDispatch();
@@ -68,6 +71,20 @@ function Navbar({ wdtToggle, handleEditChanel }) {
           <div>
             <FaSearch className="searchIcon_Navbar" />
           </div>
+          <BsMicFill size={22} className="mic_Navbar"/>
+        </div>
+        <RiVideoAddLine size={30} className="mic_Navbar"/>
+        <IoMdNotificationsOutline size={30} className="mic_Navbar"/>
+        <div className="box_apps">
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
+          <p className="box_app"></p>
         </div>
         <div className="Auth_Conatiner_navbar">
           {currentUser ? (
@@ -100,7 +117,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
                 onFailure={onFailure}
                 render={(renderProps) => (
                   <p onClick={renderProps.onClick} className="Auth_Btn">
-                    <BiUserCircle size={20}/>
+                    <BiUserCircle size={20} />
                     <b>Sign In</b>
                   </p>
                 )}

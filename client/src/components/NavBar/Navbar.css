@@ -93,7 +93,23 @@
   margin: auto 0.5rem;
   display: flex;
 }
-
+.mic_Navbar{
+  color: whitesmoke;
+  margin: auto 0.4rem;
+}
+.box_apps {
+  border: 1px solid white;
+  width: 2rem;
+  margin: auto 0;
+  height: 2rem;
+  grid-row: 3;
+}
+.box_app{
+  border: 1px solid white;
+  margin: 0;
+  width: 2px;
+  height: 2px;
+}
 @media (max-width: 550px) {
   .Auth_Btn b,
   .logo_Navbar p {
@@ -102,5 +118,4 @@
   /* .Auth_Conatiner_navbar{
     w;
   } */
-  
 }
