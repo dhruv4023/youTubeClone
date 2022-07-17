@@ -2,10 +2,9 @@ import React from "react";
 import ShowVideo from "../ShowVideo/ShowVideo";
 // import vid from "../../components/Video/vid.mp4";
 // import { getVideos } from "../../actions/video";
-import { useSelector } from "react-redux";
 
 function ShowVideoGrid({ vids }) {
-  console.log(vids);
+  // console.log(vids);
 
   // const vids = [
   //   {

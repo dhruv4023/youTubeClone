@@ -6,7 +6,7 @@ import moment from "moment";
 
 function ShowVideo({ vid }) {
   const chanels = useSelector((state) => state?.currentUserProfileReducer);
-  console.log(vid);
+  // console.log(vid);
 
   const currentChanel = chanels?.filter((c) => c?._id === vid?.videoChanel)[0];
 
