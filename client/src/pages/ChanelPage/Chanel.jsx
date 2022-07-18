@@ -13,7 +13,7 @@ function Chanel({ wdt, handleUpload, handleEditChanel }) {
     
   return (
     <div className="container_pages">
-      <LeftSidebar wdt={wdt} />
+      <LeftSidebar   />
       <div className="container_pages2">
         <DescribeChanel
           Cid={Cid}

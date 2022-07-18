@@ -7,7 +7,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 
 import WHLvideoLst from "../WHL/WHLvideoLst";
 import "./Library.css";
-function Library({ wdt }) {
+function Library() {
     const currentUser = useSelector((state) => state.currentUserReducer);
   // const currentUser = {
   //   result: {
@@ -36,7 +36,7 @@ function Library({ wdt }) {
   return (
     <>
       <div className="container_pages">
-        <LeftSidebar wdt={wdt} />
+        <LeftSidebar   />
         <div className="container_pages2">
           <div className="library_conts">
             <p className="cont_WHL">

@@ -1,5 +1,5 @@
 .container_VideoPage {
-  height: calc(100vh - 3rem);
+  height: calc(100vh - 3.4rem);
   overflow-y: auto;
   background-color: rgb(11, 11, 11);
   color: white;
@@ -8,8 +8,8 @@
 
 .video_diplay_screen_VideoPage {
   margin: 3px 0.8rem;
-  /* height: calc(100vh - 3rem); */
-  overflow-y: auto;
+  /* height: calc(100vh - 3.4rem); */
+  /* overflow-y: auto; */
 }
 .moreVideoBAr {
   overflow-y: auto;

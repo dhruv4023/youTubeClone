@@ -1,11 +1,13 @@
 .burger_logo {
   display: flex;
   /* flex-grow: ; */
+  height: 3rem;
+  margin: auto;
 }
 
 .logo_Navbar p {
   margin: auto;
-  color: white;
+  color: var(--fontClr);
   font-weight: bold;
 }
 
@@ -17,38 +19,43 @@
 .container_Navbar {
   display: flex;
   justify-content: space-between;
-  height: calc(3rem - 2px);
-  background-color: rgb(21, 21, 21);
-  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+  height: calc(3.5rem - 2px);
+  background-color: var(--bgClr);
 }
 
 .search_div {
   margin: auto 1rem;
   display: flex;
   height: 2rem;
-  flex-grow: 2;
+  flex-grow: 1;
+  /* align-items: center; */
+}
+.search_div2 {
+  display: flex;
+  margin: auto;
 }
 
 .Search_Navbar {
-  background-color: rgb(54, 53, 53);
-  width: 90%;
-  border: 0px;
+  background-color: var(--textBoxClr);
+  width: 30rem;
+  border: 1px solid rgba(128, 128, 128, 0.452);
   color: white;
-  padding: 0.3rem;
+  font-size: large;
+  padding: 0.2rem;
+  height: 2rem;
   padding-left: 2rem;
-  border-radius: 0.3rem;
 }
 
 .searchIcon_Navbar:hover {
-  background-color: rgb(43, 43, 43);
+  background-color: var(--btnHoverClr);
 }
 
 .searchIcon_Navbar {
   cursor: pointer;
-  padding: 0.5rem;
-  width: 1rem;
+  padding: 0.75rem;
+  width: 2rem;
   border-radius: 0.1rem;
-  background-color: rgb(78, 78, 78);
+  background-color: var(--btnClr);
   color: aliceblue;
 }
 
@@ -59,20 +66,20 @@
   justify-content: space-evenly;
   margin: 0.2rem;
   padding: 0.5rem;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   margin-left: 0.5rem;
   margin-right: 0.7rem;
   border-radius: 100%;
 }
 
 .burger:active {
-  border: 2px solid rgba(255, 255, 255, 0.781);
+  border: 1px solid rgba(255, 255, 255, 0.781);
 }
 
 .burger p {
   margin: 0.5px;
   width: 1.2rem;
-  height: 0.2rem;
+  height: 0.1rem;
   background-color: rgba(255, 255, 255, 0.781);
 }
 
@@ -93,6 +100,11 @@
   margin: auto 0.5rem;
   display: flex;
 }
+.mic_Navbar {
+  border-radius: 100%;
+  padding: 0.5rem;
+  background-color: var(--textBoxClr);
+}
 .mic_Navbar,
 .vid_bell_Navbar {
   color: whitesmoke;
@@ -100,9 +112,10 @@
 }
 .box_apps {
   /* border: 1px solid white; */
-  width: 30px;
+  width: 25px;
   margin: auto 0;
-  height: 30px;
+
+  height: 25px;
   grid-row: 3;
   display: flex;
   flex-wrap: wrap;
@@ -125,10 +138,10 @@
   width: 79%;
 }
 .box_app {
-  border: 2px solid white;
-  margin: 0.15rem;
-  width: 0.5px;
-  height: 0.5px;
+  border: 1px solid white;
+  margin: 0.1rem;
+  width: 2px;
+  height: 2px;
 }
 .X_SEacrbar_mobile {
   color: white;
@@ -139,11 +152,24 @@
 .Mobile {
   display: none;
 }
-@media (max-width: 715px) {
+
+@media (max-width: 1050px) {
+
+  .Search_Navbar {
+    width: 100%;
+  }
+}
+@media (max-width: 777px) {
   .Auth_Btn b,
   .logo_Navbar p {
     display: none;
   }
+  
+  /* .Auth_Conatiner_navbar{
+    w;
+  } */
+}
+@media (max-width: 598px) {
   .Search_Navbar_Mobile {
     display: flex;
   }
@@ -155,7 +181,4 @@
   .Mobile {
     display: block;
   }
-  /* .Auth_Conatiner_navbar{
-    w;
-  } */
 }

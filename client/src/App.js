@@ -15,6 +15,7 @@ import { getwatchLater } from "./actions/watchlater";
 import { getHistory } from "./actions/history";
 import { getlikedVideo } from "./actions/likedVideo";
 import { getAllcomments } from "./actions/comments";
+import BroadLeftSidebar from "./components/LeftSidebar/BroadLeftSidebar";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,41 +28,22 @@ function App() {
     dispatch(getlikedVideo());
   }, [dispatch]);
 
-  const [sdwidth, setSdWidth] = useState({
-    sdbar: {
-      width: "5rem",
-      display: "none",
-    },
+  const [broadLeftSidebarBtn, setbroadLeftSidebarBtn] = useState({
+    display: "none",
   });
 
   const wdtToggle = () => {
-    // console.log("sdwidth.sdbar.width")
-    if (sdwidth.sdbar.width === "5rem")
-      setSdWidth({
-        sdbar: {
-          width: "15rem",
-          display: "block",
-        },
+    console.log(broadLeftSidebarBtn)
+    if (broadLeftSidebarBtn.display === "none")
+      setbroadLeftSidebarBtn({
+        display: "flex",
       });
     else
-      setSdWidth({
-        sdbar: {
-          width: "5rem",
-          display: "none",
-        },
+      setbroadLeftSidebarBtn({
+        display: "none",
       });
   };
-  const offLeftSideBar=()=>{
-    if(sdwidth.sdbar.display === "block"){
-      setSdWidth({
-        sdbar: {
-          width:"15rem",
-          display: "none",
-        },
-      });
-    }
-  }
-// console.log(`${process.env.REACT_APP_SERVER}`)
+  // console.log(`${process.env.REACT_APP_SERVER}`)
   const [uploadVideo, setUploadVideo] = useState(false);
   const [EditChanel, setEditChanel] = useState(false);
   // const [loginPage, setLoginPage] = useState(false);
@@ -99,9 +81,8 @@ function App() {
             // setLoginPage={setLoginPage}
             handleEditChanel={handleEditChanel}
           />
+          <BroadLeftSidebar wdtToggle={wdtToggle} broadLeftSidebarBtn={broadLeftSidebarBtn} />
           <AllRoutes
-            wdt={sdwidth}
-            offLeftSideBar={offLeftSideBar}
             handleUpload={handleUpload}
             handleEditChanel={handleEditChanel}
           />

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import "./VideoPage.css";
 
 // import Vid from "../../components/Video/vid.mp4";
-import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToHistory } from "../../actions/history";
 
@@ -15,7 +14,7 @@ import Comment from "../../components/Comments/Comment";
 import MoreVideos from "./MoreVideos";
 // import moment from "moment";
 
-function VideoPage({ wdt, offLeftSideBar }) {
+function VideoPage() {
   const { vid } = useParams();
   const vids = useSelector((state) => state.videoReducer);
   const dispatch = useDispatch();
@@ -64,14 +63,7 @@ function VideoPage({ wdt, offLeftSideBar }) {
   // console.log(vvv)
   return (
     <>
-      <div className="container_VideoPage" onClick={() => offLeftSideBar()}>
-        <div
-          className="sidebar_on_nonSidebarPage"
-          style={{ display: `${wdt.sdbar.display}` }}
-        >
-          <LeftSidebar wdt={wdt} />
-        </div>
-
+      <div className="container_VideoPage">
         <div className="video_diplay_screen_VideoPage">
           <video
             key={vv._id}

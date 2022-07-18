@@ -76,39 +76,35 @@ function Navbar({ wdtToggle, handleEditChanel }) {
           </Link>
         </div>
         <div className="search_div">
-          <input
-            type="text"
-            className="Search_Navbar"
-            placeholder="Search..."
-          />
-          <div className="searchBar_Navbar_Mobile" style={searchMobile}>
-            <div className="search_div">
-              <input
-                type="text"
-                className="Mobile Search_Navbar"
-                placeholder="Search..."
-              />
-              <div>
-                <FaSearch className="searchIcon_Navbar Mobile" />
-              </div>
-              <BsMicFill size={20} className="mic_Navbar Mobile" />
-              <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
-                X
+          <div className="search_div2">
+            <input type="text" className="Search_Navbar" placeholder="Search" />
+            <div className="searchBar_Navbar_Mobile" style={searchMobile}>
+              <div className="search_div">
+                <input
+                  type="text"
+                  className="Mobile Search_Navbar"
+                  placeholder="Search..."
+                />
+                <div>
+                  <FaSearch className="searchIcon_Navbar Mobile" />
+                </div>
+                <BsMicFill size={20} className="mic_Navbar Mobile" />
+                <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
+                  X
+                </div>
               </div>
             </div>
+            <div>
+              <FaSearch className="searchIcon_Navbar" />
+            </div>
+            <BsMicFill size={20} className="mic_Navbar" />
           </div>
-          <div>
-            <FaSearch
-              className="searchIcon_Navbar"
-            />
-          </div>
-          <BsMicFill size={20} className="mic_Navbar" />
         </div>
         <FaSearch
-              className="vid_bell_Navbar Mobile"
-              size={20}
-              onClick={searchMobileToggle}
-            />
+          className="vid_bell_Navbar Mobile"
+          size={20}
+          onClick={searchMobileToggle}
+        />
         <RiVideoAddLine size={22} className="vid_bell_Navbar" />
         <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
         <div className="box_apps">

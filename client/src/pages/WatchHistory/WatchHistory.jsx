@@ -3,11 +3,11 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import WHL from '../WHL/WHL'
 
-function WatchHistory({wdt}) {
+function WatchHistory() {
   const history = useSelector((state) => state.historyReducer);
   
   return (
-    <WHL wdt={wdt} name={"History"} whl={history}  />
+    <WHL   name={"History"} whl={history}  />
   )
 }
 
@@ -28,7 +28,7 @@ export default WatchHistory
 //   // const currentUser =2
 //   return (
 //     <div className="container_pages">
-//       <LeftSidebar wdt={wdt} />
+//       <LeftSidebar   />
 //       <div className="container_pages2">
 //         <p className="det">
 //           <div className="box_watchLater">

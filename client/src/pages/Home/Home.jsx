@@ -3,7 +3,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import "./home.css";
 import ShowVideoGrid from "../ShowVideoGrid/ShowVideoGrid";
 import { useSelector } from "react-redux";
-function Home({ wdt }) {
+function Home() {
   // const vid='https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
   // const vid=;
 
@@ -30,7 +30,7 @@ function Home({ wdt }) {
   ];
   return (
     <div className="container_pages">
-      <LeftSidebar wdt={wdt} />
+      <LeftSidebar/>
       <div className="container_pages2">
         <div className="navigation_Home">
           {NavList.map((m) => (

@@ -4,7 +4,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import ShowVideoGrid from "../ShowVideoGrid/ShowVideoGrid";
 
 import "./yourVideo.css";
-function YourVideos({ wdt }) {
+function YourVideos() {
   const currentUser = useSelector((state) => state.currentUserReducer);
 
   const vids = useSelector((state) => state.videoReducer)
@@ -13,7 +13,7 @@ function YourVideos({ wdt }) {
   return (
     <>
       <div className="container_pages">
-        <LeftSidebar wdt={wdt} />
+        <LeftSidebar   />
         <div className="container_pages2">
           <div className="yourvideo_container">
             <h1>YourVideos</h1>

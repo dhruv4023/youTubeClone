@@ -9,28 +9,27 @@ import LikedVideo from "../pages/LikedVideo/LikedVideo";
 import Library from "../pages/Library/Library";
 import YourVideos from "../pages/YourVideos/YourVideos";
 
-function AllRoutes({ wdt, handleUpload, handleEditChanel,
-  offLeftSideBar }) {
+function AllRoutes({ handleUpload, handleEditChanel }) {
   return (
     <Routes>
       {/* <h1>HELLO</h1> */}
 
-      <Route path="/" element={<Home wdt={wdt} />} />
-      <Route path="/history" element={<WatchHistory wdt={wdt} />} />
-      <Route path="/watchLater" element={<WatchLater wdt={wdt} />} />
-      <Route path="/likedvideo" element={<LikedVideo wdt={wdt} />} />
-      <Route path="/library" element={<Library wdt={wdt} />} />
-      <Route path="/yourvideo" element={<YourVideos wdt={wdt} />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/history" element={<WatchHistory />} />
+      <Route path="/watchLater" element={<WatchLater />} />
+      <Route path="/likedvideo" element={<LikedVideo />} />
+      <Route path="/library" element={<Library />} />
+      <Route path="/yourvideo" element={<YourVideos />} />
       <Route
         path="/VideoPage/:vid"
-        element={<VideoPage wdt={wdt} offLeftSideBar={offLeftSideBar} />}
+        element={<VideoPage  />}
       />
 
       <Route
         path="/chanel/:Cid"
         element={
           <Chanel
-            wdt={wdt}
+          
             handleUpload={handleUpload}
             handleEditChanel={handleEditChanel}
           />
