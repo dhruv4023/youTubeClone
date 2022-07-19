@@ -108,12 +108,12 @@
 .mic_Navbar,
 .vid_bell_Navbar {
   color: whitesmoke;
-  margin: auto 0.5rem;
+  margin: auto 0.7rem;
 }
 .box_apps {
   /* border: 1px solid white; */
   width: 25px;
-  margin: auto 0;
+  margin: auto 0.7rem;
 
   height: 25px;
   grid-row: 3;

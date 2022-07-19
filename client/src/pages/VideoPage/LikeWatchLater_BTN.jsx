@@ -1,5 +1,5 @@
 import React from "react";
-import { MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
+import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from "react-icons/ri";
 
 import { addTowatchLater, deletewatchLater } from "../../actions/watchlater";
 import { likeVideo } from "../../actions/video";
@@ -12,6 +12,7 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import './BtnsVideoPage.css'
 import { addTolikedVideo, deletelikedVideo } from "../../actions/likedVideo";
 function LikeWatchLater_BTN({ vv, vid }) {
   const dispatch = useDispatch();
@@ -115,23 +116,47 @@ function LikeWatchLater_BTN({ vv, vid }) {
   };
 
   return (
-    <b>
-      <div className="btn_videoPage">
-        <div className="like_videopage">
-          {like ? (
+    <div className="btns_cont_VidoPageBtn">
+     <div className="btn_videoPage">
+        <div className="like_videopage" onClick={handleWatchLater}>
+          {watchLater ? (
             <>
-              <AiFillLike onClick={(e) => handleLike(e, vv.Like)} size={30} />
+              <RiPlayListAddFill size={22} className="btns_videoPage"/>
             </>
           ) : (
             <>
-              <AiOutlineLike
-                onClick={(e) => handleLike(e, vv.Like)}
-                size={30}
-              />
+              <RiPlayListAddFill size={22} className="btns_videoPage"/>
             </>
           )}
-          <b>{vv.Like}</b>
-          {/* {console.log(vv.Like)} */}
+          <b>Save</b>
+        </div>
+      </div>
+     <div className="btn_videoPage">
+        <div className="like_videopage">
+          {watchLater ? (
+            <>
+              <RiHeartAddFill size={22} className="btns_videoPage"/>
+            </>
+          ) : (
+            <>
+              <RiHeartAddFill size={22} className="btns_videoPage"/>
+            </>
+          )}
+          <b>Thanks</b>
+        </div>
+      </div>
+     <div className="btn_videoPage">
+        <div className="like_videopage">
+          {watchLater ? (
+            <>
+              <RiShareForwardLine size={22} className="btns_videoPage"/>
+            </>
+          ) : (
+            <>
+              <RiShareForwardLine size={22} className="btns_videoPage"/>
+            </>
+          )}
+          <b>Share</b>
         </div>
       </div>
       <div className="btn_videoPage">
@@ -141,31 +166,36 @@ function LikeWatchLater_BTN({ vv, vid }) {
         >
           {disLike ? (
             <>
-              <AiFillDislike size={30} />
+              <AiFillDislike size={22} className="btns_videoPage"/>
             </>
           ) : (
             <>
-              <AiOutlineDislike size={30} />
+              <AiOutlineDislike size={22} className="btns_videoPage"/>
             </>
           )}
           <b>DISLIKE</b>
         </div>
       </div>
+      
       <div className="btn_videoPage">
-        <div className="like_videopage" onClick={handleWatchLater}>
-          {watchLater ? (
+        <div className="like_videopage">
+          {like ? (
             <>
-              <MdWatchLater size={30} />
+              <AiFillLike onClick={(e) => handleLike(e, vv.Like)} size={22} className="btns_videoPage"/>
             </>
           ) : (
             <>
-              <MdOutlineWatchLater size={30} />
+              <AiOutlineLike
+                onClick={(e) => handleLike(e, vv.Like)}
+                size={22}
+              />
             </>
           )}
-          <b>WatchLater</b>
+          <b>{vv.Like}</b>
+          {/* {console.log(vv.Like)} */}
         </div>
       </div>
-    </b>
+    </div>
   );
 }
 

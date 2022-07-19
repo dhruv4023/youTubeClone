@@ -1,0 +1,21 @@
+.btns_cont_VidoPageBtn {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 5;
+}
+.like_videopage {
+  margin: 0.5rem;
+  display: flex;
+}
+.btn_videoPage {
+  margin: auto 0;
+}
+.btns_videoPage {
+  margin: auto 0.5rem;
+}
+ @media (max-width: 500px) {
+    .like_videopage {
+        flex-direction: column;
+    }
+}
+

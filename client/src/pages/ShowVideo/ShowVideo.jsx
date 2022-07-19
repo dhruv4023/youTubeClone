@@ -46,6 +46,8 @@ function ShowVideo({ vid }) {
                   </>
                 } */}
           </p>
+          
+          <pre className="vid_views_UploadTime">{vid?.Uploder}</pre>
           <pre className="vid_views_UploadTime">
              {vid.Views} Views    {moment(vid.createdAt).fromNow()}
           </pre>

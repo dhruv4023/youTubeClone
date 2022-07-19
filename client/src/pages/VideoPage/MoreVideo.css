@@ -1,0 +1,22 @@
+.MoreVideo_VideoPage_video_list {
+  display: flex;
+  width: 95%;
+  margin: 0.5rem;
+  height: 10rem;
+}
+.MoreVideo_VideoPage_video_list .video_description {
+  padding-left: 1rem;
+  height: 5rem;
+}
+.MoreVideo_VideoPage_video_list .chanel_logo {
+  display: none;
+}
+.MoreVideo_VideoPage_video_list .title_vid_ShowVideo {
+  font-size: x-large;
+}
+@media (max-width: 1500px) {
+  .MoreVideo_VideoPage_video_list {
+    height: 7rem;
+  }
+}
+

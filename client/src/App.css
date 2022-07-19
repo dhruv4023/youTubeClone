@@ -24,7 +24,7 @@ video {
 }
 
 .video_box {
-  width: fit-content;
+  width: 18rem;
   height: fit-content;
   margin: 0.2rem;
   border: 2px solid transparent;

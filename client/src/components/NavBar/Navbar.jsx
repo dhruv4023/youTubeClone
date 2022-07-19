@@ -106,7 +106,6 @@ function Navbar({ wdtToggle, handleEditChanel }) {
           onClick={searchMobileToggle}
         />
         <RiVideoAddLine size={22} className="vid_bell_Navbar" />
-        <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
         <div className="box_apps">
           <p className="box_app"></p>
           <p className="box_app"></p>
@@ -118,6 +117,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
           <p className="box_app"></p>
           <p className="box_app"></p>
         </div>
+        <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
         <div className="Auth_Conatiner_navbar">
           {currentUser ? (
             <>
