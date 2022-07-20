@@ -6,6 +6,7 @@
 .like_videopage {
   margin: 0.5rem;
   display: flex;
+  cursor: pointer;
 }
 .btn_videoPage {
   margin: auto 0;

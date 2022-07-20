@@ -39,12 +39,7 @@ function ShowVideo({ vid }) {
         <div className="video_details">
           <p className="title_vid_ShowVideo">
             {/* <>{String("vid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitle").slice(0, 20)}...</> */}
-            <>{String(vid.videoTitle).slice(0, 20)}...</>
-            {/* {
-                  (String(vid?.videoTitle)?.length()>20 )?
-                  :<>{vid.videoTitle}
-                  </>
-                } */}
+            <>{String(vid.videoTitle).slice(0, 20)}</>
           </p>
           
           <pre className="vid_views_UploadTime">{vid?.Uploder}</pre>

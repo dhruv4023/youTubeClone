@@ -54,6 +54,8 @@
 .chanel_details_videoPage {
   border-bottom: 3px solid rgba(245, 222, 179, 0.175);
   display: flex;
+  text-decoration: none;
+  color: aliceblue;
   font-weight: bolder;
 }
 .chanel_logo_videPage p {

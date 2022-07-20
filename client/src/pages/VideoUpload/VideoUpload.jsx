@@ -14,6 +14,7 @@ function VideoUpload({ setUploadVideo }) {
 
   const [title, setTitle] = useState("");
   const [singleFile, setSingleFile] = useState("");
+  const [disable, setDisable] = useState(true)
 
   const SingleFileChange = (e) => {
     setSingleFile(e.target.files[0]);
@@ -33,12 +34,16 @@ function VideoUpload({ setUploadVideo }) {
   };
 
   const uploadSingleFile = () => {
-    // console.log(singleFile)
+    // console.log()
+    // title=singleFile.name;
     if (!title) {
       alert("Plese Enter a Title of Your Video");
     } else if (!singleFile) {
       alert("Plese Attach Your Video");
+    } else if (singleFile.size > 1000000) {
+      alert("Plese Attach less than 1kb File");
     } else {
+      setDisable(false);
       const formData = new FormData();
       formData.append("file", singleFile);
       formData.append("title", title);
@@ -50,7 +55,6 @@ function VideoUpload({ setUploadVideo }) {
           singleFileOptions,
         })
       );
-        // setUploadVideo(false)
     }
   };
 
@@ -90,6 +94,7 @@ function VideoUpload({ setUploadVideo }) {
             value="Upload"
             className="ibox_vidUpload btn_vidUpload"
             onClick={() => uploadSingleFile()}
+            // disabled={disable}
           />
         </div>
         <div className="loader ibox_div_uploadVid">
@@ -101,13 +106,13 @@ function VideoUpload({ setUploadVideo }) {
               strokeLinecap: "butt",
               textSize: "20px",
               pathTransitionDuration: 0.5,
-              pathColor: `rgba(255, 136, 136, ${singleProgress / 100})`,
+              pathColor: `rgba(255, 255, 255, ${singleProgress / 100})`,
               textColor: "#f88",
-              trailColor: "#d6d6d6",
+              trailColor: "#adff2f",
               backgroundColor: "#3e98c7",
             })} 
           />
-           
+          
         </div>
       </div>
     </div>
@@ -115,3 +120,6 @@ function VideoUpload({ setUploadVideo }) {
 }
 
 export default VideoUpload;
+
+
+

@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./VideoPage.css";
 
 // import Vid from "../../components/Video/vid.mp4";
@@ -20,7 +20,7 @@ function VideoPage() {
   const vids = useSelector((state) => state.videoReducer);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUserReducer);
-  // console.log(vid,currentChanel)
+  // console.log(vid)
   const chanels = useSelector((state) => state.currentUserProfileReducer);
   // console.log(chanels);
   // const currentChanel = chanels.filter((user) => vid === vid?.videoChanel)[0];
@@ -89,20 +89,20 @@ function VideoPage() {
                 </div>
               </div>
 
-              <div className="chanel_details_videoPage">
+              < >
                 {chanels
                   .filter((q) => q._id === vv.videoChanel)
                   .map((m) => {
                     return (
-                      <>
+                      <Link to={`/chanel/${m._id}`} className="chanel_details_videoPage">
                         <b className="chanel_logo_videPage" key={m._id}>
                           <p>{m.name.charAt(0).toUpperCase()}</p>
                         </b>
                         <p className="chanel_name_videPage">{m.name}</p>
-                      </>
+                      </Link>
                     );
                   })}
-              </div>
+              </>
               <div className="comments_videoPage">
                 <h2>
                   <u> Comments </u>

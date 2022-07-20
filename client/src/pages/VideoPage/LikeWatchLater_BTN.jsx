@@ -1,5 +1,6 @@
 import React from "react";
 import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from "react-icons/ri";
+import {MdPlaylistAddCheck } from "react-icons/md";
 
 import { addTowatchLater, deletewatchLater } from "../../actions/watchlater";
 import { likeVideo } from "../../actions/video";
@@ -122,13 +123,14 @@ function LikeWatchLater_BTN({ vv, vid }) {
           {watchLater ? (
             <>
               <RiPlayListAddFill size={22} className="btns_videoPage"/>
+              <b>Save</b>
             </>
           ) : (
             <>
-              <RiPlayListAddFill size={22} className="btns_videoPage"/>
+              <MdPlaylistAddCheck size={22} className="btns_videoPage"/>
+              <b>Saved</b>
             </>
           )}
-          <b>Save</b>
         </div>
       </div>
      <div className="btn_videoPage">

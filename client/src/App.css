@@ -1,10 +1,10 @@
-*{
-  --bgClr:rgb(37, 37, 37);
-  --fontClr:white;
-  --textBoxClr:rgba(0, 0, 0, 0.677);
-  --btnClr:rgba(128, 128, 128, 0.33);
-  --btnHoverClr:rgba(128, 128, 128, 0.53);
-  font-family:  Roboto,  sans-serif;
+* {
+  --bgClr: rgb(37, 37, 37);
+  --fontClr: white;
+  --textBoxClr: rgba(0, 0, 0, 0.677);
+  --btnClr: rgba(128, 128, 128, 0.33);
+  --btnHoverClr: rgba(128, 128, 128, 0.53);
+  font-family: Roboto, sans-serif;
 }
 
 video {
@@ -24,9 +24,8 @@ video {
 }
 
 .video_box {
-  width: 18rem;
-  height: fit-content;
-  margin: 0.2rem;
+  width: 21rem;
+  height: 17rem;
   border: 2px solid transparent;
 }
 
