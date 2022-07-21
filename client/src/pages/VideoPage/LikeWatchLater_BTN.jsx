@@ -122,13 +122,13 @@ function LikeWatchLater_BTN({ vv, vid }) {
         <div className="like_videopage" onClick={handleWatchLater}>
           {watchLater ? (
             <>
-              <RiPlayListAddFill size={22} className="btns_videoPage"/>
-              <b>Save</b>
+              <MdPlaylistAddCheck size={22} className="btns_videoPage"/>
+              <b>Saved</b>
             </>
           ) : (
             <>
-              <MdPlaylistAddCheck size={22} className="btns_videoPage"/>
-              <b>Saved</b>
+              <RiPlayListAddFill size={22} className="btns_videoPage"/>
+              <b>Save</b>
             </>
           )}
         </div>

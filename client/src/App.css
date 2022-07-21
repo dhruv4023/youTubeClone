@@ -26,6 +26,7 @@ video {
 .video_box {
   width: 21rem;
   height: 17rem;
+  margin-bottom: 1rem;
   border: 2px solid transparent;
 }
 
