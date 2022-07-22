@@ -1,6 +1,10 @@
 import React from "react";
-import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from "react-icons/ri";
-import {MdPlaylistAddCheck } from "react-icons/md";
+import {
+  RiHeartAddFill,
+  RiPlayListAddFill,
+  RiShareForwardLine,
+} from "react-icons/ri";
+import { MdPlaylistAddCheck } from "react-icons/md";
 
 import { addTowatchLater, deletewatchLater } from "../../actions/watchlater";
 import { likeVideo } from "../../actions/video";
@@ -13,8 +17,9 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import './BtnsVideoPage.css'
+import "./BtnsVideoPage.css";
 import { addTolikedVideo, deletelikedVideo } from "../../actions/likedVideo";
+import { BsThreeDots } from "react-icons/bs";
 function LikeWatchLater_BTN({ vv, vid }) {
   const dispatch = useDispatch();
 
@@ -47,7 +52,7 @@ function LikeWatchLater_BTN({ vv, vid }) {
     if (currentUser !== null) {
       if (watchLater) {
         setWatchLater(false);
-        console.log("s")
+        console.log("s");
         dispatch(
           deletewatchLater({ videoId: vid, Viewer: currentUser?.result._id })
         );
@@ -75,7 +80,9 @@ function LikeWatchLater_BTN({ vv, vid }) {
             Like: lk - 1,
           })
         );
-        dispatch(deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id }));
+        dispatch(
+          deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id })
+        );
       } else {
         setLike(true);
         dispatch(
@@ -109,7 +116,9 @@ function LikeWatchLater_BTN({ vv, vid }) {
           })
         );
       }
-      dispatch(deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id }));
+      dispatch(
+        deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id })
+      );
       setLike(false);
     } else {
       alert("Plz Login to DisLike The Video");
@@ -118,44 +127,47 @@ function LikeWatchLater_BTN({ vv, vid }) {
 
   return (
     <div className="btns_cont_VidoPageBtn">
-     <div className="btn_videoPage">
+      <div className="btn_videoPage">
+        <BsThreeDots />
+      </div>
+      <div className="btn_videoPage">
         <div className="like_videopage" onClick={handleWatchLater}>
           {watchLater ? (
             <>
-              <MdPlaylistAddCheck size={22} className="btns_videoPage"/>
+              <MdPlaylistAddCheck size={22} className="btns_videoPage" />
               <b>Saved</b>
             </>
           ) : (
             <>
-              <RiPlayListAddFill size={22} className="btns_videoPage"/>
+              <RiPlayListAddFill size={22} className="btns_videoPage" />
               <b>Save</b>
             </>
           )}
         </div>
       </div>
-     <div className="btn_videoPage">
+      <div className="btn_videoPage">
         <div className="like_videopage">
           {watchLater ? (
             <>
-              <RiHeartAddFill size={22} className="btns_videoPage"/>
+              <RiHeartAddFill size={22} className="btns_videoPage" />
             </>
           ) : (
             <>
-              <RiHeartAddFill size={22} className="btns_videoPage"/>
+              <RiHeartAddFill size={22} className="btns_videoPage" />
             </>
           )}
           <b>Thanks</b>
         </div>
       </div>
-     <div className="btn_videoPage">
+      <div className="btn_videoPage">
         <div className="like_videopage">
           {watchLater ? (
             <>
-              <RiShareForwardLine size={22} className="btns_videoPage"/>
+              <RiShareForwardLine size={22} className="btns_videoPage" />
             </>
           ) : (
             <>
-              <RiShareForwardLine size={22} className="btns_videoPage"/>
+              <RiShareForwardLine size={22} className="btns_videoPage" />
             </>
           )}
           <b>Share</b>
@@ -168,22 +180,26 @@ function LikeWatchLater_BTN({ vv, vid }) {
         >
           {disLike ? (
             <>
-              <AiFillDislike size={22} className="btns_videoPage"/>
+              <AiFillDislike size={22} className="btns_videoPage" />
             </>
           ) : (
             <>
-              <AiOutlineDislike size={22} className="btns_videoPage"/>
+              <AiOutlineDislike size={22} className="btns_videoPage" />
             </>
           )}
           <b>DISLIKE</b>
         </div>
       </div>
-      
+
       <div className="btn_videoPage">
         <div className="like_videopage">
           {like ? (
             <>
-              <AiFillLike onClick={(e) => handleLike(e, vv.Like)} size={22} className="btns_videoPage"/>
+              <AiFillLike
+                onClick={(e) => handleLike(e, vv.Like)}
+                size={22}
+                className="btns_videoPage"
+              />
             </>
           ) : (
             <>

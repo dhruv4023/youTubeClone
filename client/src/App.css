@@ -51,3 +51,11 @@ video {
   font-weight: bolder;
   cursor: pointer;
 }
+
+.dot{
+  width: 4px;
+  height: 4px;
+  background-color: rgba(250, 235, 215, 0.555);
+  border-radius: 100%;
+  margin: auto 0.5rem;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./ShowVideo.css";
+import {BsThreeDotsVertical} from 'react-icons/bs'
 import moment from "moment";
 
 function ShowVideo({ vid }) {
@@ -39,12 +40,14 @@ function ShowVideo({ vid }) {
         <div className="video_details">
           <p className="title_vid_ShowVideo">
             {/* <>{String("vid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitle").slice(0, 20)}...</> */}
-            <>{String(vid.videoTitle).slice(0, 20)}</>
+            <b>{String(vid.videoTitle).slice(0, 20)}</b>
+            {/* <b>{String("xyxyxyxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy").slice(0, 20)}</b> */}
+            <i><BsThreeDotsVertical/></i>
           </p>
           
           <pre className="vid_views_UploadTime">{vid?.Uploder}</pre>
           <pre className="vid_views_UploadTime">
-             {vid.Views} Views    {moment(vid.createdAt).fromNow()}
+             {vid.Views} Views <div className="dot"></div> {moment(vid.createdAt).fromNow()}
           </pre>
         </div>
       </div>

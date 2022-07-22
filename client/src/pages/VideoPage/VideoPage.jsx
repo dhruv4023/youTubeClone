@@ -82,7 +82,7 @@ function VideoPage() {
                 <p className="video_titile_videopage">{vv.videoTitle}</p>
                 <div className="videoPage_vies_date_btns">
                   <div className="views_videopage">
-                    {vv.Views} views  *  {moment(vv.createdAt).format("MMM DD, YYYY")}{" "}
+                    {vv.Views} views <div className="dot"></div> {moment(vv.createdAt).format("MMM DD, YYYY")}{" "}
                   </div>
                     <LikeWatchLater_BTN vv={vv} vid={vid} />
           

@@ -48,7 +48,9 @@
 
 .views_videopage {
   font-size: 0.8rem;
+  display: flex;
   flex-grow: 1;
+  align-items: center;
 }
 
 .chanel_details_videoPage {

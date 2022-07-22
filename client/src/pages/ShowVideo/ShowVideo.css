@@ -50,13 +50,19 @@
 .vid_views_UploadTime {
   font-size: small;
   font-style: italic;
-  color: rgba(250, 235, 215, 0.355);
+  color: rgba(250, 235, 215, 0.555);
   margin: 0.2rem;
+  display: flex;
 }
 .title_vid_ShowVideo {
   font-size: large;
   font-weight: bolder;
   color: antiquewhite;
+  display: flex;
+}
+
+.title_vid_ShowVideo b{
+  flex-grow: 1;
 }
 
 @media (max-width:450px){

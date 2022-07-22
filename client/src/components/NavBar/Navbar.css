@@ -89,7 +89,7 @@
   padding: 0.5rem;
   color: #3ea6ff;
   background-color: rgb(36, 36, 36);
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
   border: 2px solid;
 }
 .Auth_Btn:hover {
