@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  z-index: 20;
+  z-index: 100;
   display: flex;
 }
 .container2_ECUD h1 {

@@ -8,6 +8,7 @@ import Chanel from "../pages/ChanelPage/Chanel";
 import LikedVideo from "../pages/LikedVideo/LikedVideo";
 import Library from "../pages/Library/Library";
 import YourVideos from "../pages/YourVideos/YourVideos";
+import Search from "../pages/Search/Search";
 
 function AllRoutes({ handleUpload, handleEditChanel }) {
   return (
@@ -20,6 +21,7 @@ function AllRoutes({ handleUpload, handleEditChanel }) {
       <Route path="/likedvideo" element={<LikedVideo />} />
       <Route path="/library" element={<Library />} />
       <Route path="/yourvideo" element={<YourVideos />} />
+      <Route path="/search/:searchQuery" element={<Search />} />
       <Route
         path="/VideoPage/:vid"
         element={<VideoPage  />}
@@ -28,8 +30,7 @@ function AllRoutes({ handleUpload, handleEditChanel }) {
       <Route
         path="/chanel/:Cid"
         element={
-          <Chanel
-          
+          <Chanel    
             handleUpload={handleUpload}
             handleEditChanel={handleEditChanel}
           />

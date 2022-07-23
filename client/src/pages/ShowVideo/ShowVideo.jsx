@@ -18,8 +18,9 @@ function ShowVideo({ vid }) {
           src={`${process.env.REACT_APP_SERVER}/${vid.filePath}`}
           // src={`https://youtubeclone4023.herokuapp.com/${vid.filePath}`}
           // src={`http://localhost:5500/${vid.filePath}`}
-          className="video_ShowVideo"
-        ></video>
+          className="video_ShowVideo controls"
+          // controls
+        > </video>
       </Link>
       <div className="video_description">
         <div className="chanel_logo">
@@ -40,7 +41,7 @@ function ShowVideo({ vid }) {
         <div className="video_details">
           <p className="title_vid_ShowVideo">
             {/* <>{String("vid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitlevid.videoTitle").slice(0, 20)}...</> */}
-            <b>{String(vid.videoTitle).slice(0, 20)}</b>
+            <b>{String(vid.videoTitle).slice(0, 20)}...</b>
             {/* <b>{String("xyxyxyxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy").slice(0, 20)}</b> */}
             <i><BsThreeDotsVertical/></i>
           </p>

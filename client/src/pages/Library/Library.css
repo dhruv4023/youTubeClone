@@ -1,16 +1,21 @@
 .library_conts {
   border-bottom: 1px solid grey;
-  padding: 0.5rem;
+  padding: 1rem 2rem;
   color: aliceblue;
+}
+.Library_cont_title {
+  margin: 0.5rem 4rem;
 }
 .Library_cont_title b {
   margin: auto 0.5rem;
   padding: auto 0.5rem;
+  font-size: medium;
 }
 
-.cont_videoslist_library{
+.cont_videoslist_library {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0;
   /* border: 1px solid red; */
 }

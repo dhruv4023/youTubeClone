@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { FaSearch } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import logo from "./logo.ico";
 import Auth from "../../pages/Auth/Auth";
@@ -12,9 +11,10 @@ import { login } from "../../actions/auth";
 import { gapi } from "gapi-script";
 import { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
-import { BsMicFill } from "react-icons/bs";
+
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { RiVideoAddLine } from "react-icons/ri";
+import SearchBar from "./SearchFun/SearchBar";
 // function Navbar({ setLoginPage, wdtToggle, handleEditChanel }) {
 function Navbar({ wdtToggle, handleEditChanel }) {
   const dispatch = useDispatch();
@@ -48,19 +48,6 @@ function Navbar({ wdtToggle, handleEditChanel }) {
     console.log("FAILED", response);
   };
 
-  const [searchMobile, setSearchMobile] = useState({ display: "none" });
-  const searchMobileToggle = () => {
-    if (searchMobile.display === "none") {
-      setSearchMobile({
-        display: "block",
-      });
-    } else {
-      setSearchMobile({
-        display: "none",
-      });
-    }
-  };
-
   return (
     <>
       <div className="container_Navbar">
@@ -75,36 +62,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
             <p>YouTube</p>
           </Link>
         </div>
-        <div className="search_div">
-          <div className="search_div2">
-            <input type="text" className="Search_Navbar" placeholder="Search" />
-            <div className="searchBar_Navbar_Mobile" style={searchMobile}>
-              <div className="search_div">
-                <input
-                  type="text"
-                  className="Mobile Search_Navbar"
-                  placeholder="Search..."
-                />
-                <div>
-                  <FaSearch className="searchIcon_Navbar Mobile" />
-                </div>
-                <BsMicFill size={20} className="mic_Navbar Mobile" />
-                <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
-                  X
-                </div>
-              </div>
-            </div>
-            <div>
-              <FaSearch className="searchIcon_Navbar" />
-            </div>
-            <BsMicFill size={20} className="mic_Navbar" />
-          </div>
-        </div>
-        <FaSearch
-          className="vid_bell_Navbar Mobile"
-          size={20}
-          onClick={searchMobileToggle}
-        />
+        <SearchBar />
         <RiVideoAddLine size={22} className="vid_bell_Navbar" />
         <div className="box_apps">
           <p className="box_app"></p>

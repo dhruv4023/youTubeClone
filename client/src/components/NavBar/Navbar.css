@@ -33,6 +33,7 @@
 .search_div2 {
   display: flex;
   margin: auto;
+  z-index: 91;
 }
 
 .Search_Navbar {
