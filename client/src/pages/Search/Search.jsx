@@ -8,9 +8,9 @@ function Search() {
   const { searchQuery } = useParams();
 
   const vids = useSelector((state) => state.videoReducer)
-    ?.data?.filter((e) => e.videoTitle.includes(searchQuery))
+    ?.data?.filter((e) => e.videoTitle.toUpperCase().includes(searchQuery.toUpperCase()))
     ?.reverse();
-  console.log(searchQuery);
+  // console.log(searchQuery);
 
   return (
     <>

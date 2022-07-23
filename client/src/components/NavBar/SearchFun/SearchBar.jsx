@@ -10,12 +10,6 @@ import "./searchBar.css";
 import SearchList from "./SearchList";
 
 function SearchBar() {
-  const TitleArray = useSelector((state) => state.videoReducer)?.data?.filter(
-    (q) => q?.videoTitle
-  );
-
-  console.log(TitleArray);
-
   const [searchMobile, setSearchMobile] = useState({ display: "none" });
   const searchMobileToggle = () => {
     if (searchMobile.display === "none") {
@@ -33,6 +27,15 @@ function SearchBar() {
 
   // const value = searchQuery;
   // console.log(searchQuery);
+  const TitleArray = useSelector((state) => state.videoReducer)
+    ?.data?.filter(
+      (q) => q?.videoTitle.toUpperCase().includes(searchQuery.toUpperCase())
+      // console.log(q)
+    )
+    .map((m) => m.videoTitle);
+
+  // console.log(searchQuery);
+  // console.log(TitleArray);
 
   return (
     <>
@@ -67,8 +70,8 @@ function SearchBar() {
             <FaSearch className="searchIcon_Navbar" />
           </Link>
           <BsMicFill size={20} className="mic_Navbar" />
+          {searchQuery && <SearchList titleList={TitleArray} setSearchQuery={setSearchQuery}/>}
         </div>
-        {/* <SearchList /> */}
       </div>
       <FaSearch
         className="vid_bell_Navbar Mobile"

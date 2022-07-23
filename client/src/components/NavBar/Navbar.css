@@ -33,6 +33,7 @@
 .search_div2 {
   display: flex;
   margin: auto;
+  position: relative;
   z-index: 91;
 }
 

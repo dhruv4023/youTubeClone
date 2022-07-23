@@ -10,9 +10,19 @@
 
 .container_SearchList2 {
   background-color: white;
-  width: 30%;
-  height: 2rem;
+  /* flex-grow: 1; */
+  min-width: 30rem;
+  top: 2.7rem;
+  height: fit-content;
   z-index: 91;
-  top:3rem;
-  position: inherit;
+  position: absolute;
+}
+
+.titleItem {
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.titleItem:hover {
+  background-color: rgba(166, 202, 234, 0.516);
 }
