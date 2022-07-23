@@ -48,30 +48,41 @@ function SearchBar() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <div className="searchBar_Navbar_Mobile" style={searchMobile}>
-            <div className="search_div">
-              <input
-                type="text"
-                className="Mobile Search_Navbar"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search"
-              />
-              <Link to={`/search/${searchQuery}`}>
-                <FaSearch className="searchIcon_Navbar Mobile" />
-              </Link>
-              <BsMicFill size={20} className="mic_Navbar Mobile" />
-              <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
-                X
-              </div>
-            </div>
-          </div>
           <Link to={`/search/${searchQuery}`}>
             <FaSearch className="searchIcon_Navbar" />
           </Link>
           <BsMicFill size={20} className="mic_Navbar" />
-          {searchQuery && <SearchList titleList={TitleArray} setSearchQuery={setSearchQuery}/>}
+          {searchQuery && (
+            <SearchList
+              className="search"
+              titleList={TitleArray}
+              setSearchQuery={setSearchQuery}
+            />
+          )}
         </div>
+      </div>
+      <div className="searchBar_Navbar_Mobile Mobile" style={searchMobile}>
+        <div className="search_div">
+          <input
+            type="text"
+            className="Mobile Search_Navbar"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search"
+          />
+          <Link to={`/search/${searchQuery}`}>
+            <FaSearch className="searchIcon_Navbar Mobile" />
+          </Link>
+          <BsMicFill size={20} className="mic_Navbar Mobile" />
+          <div className="X_SEacrbar_mobile" onClick={searchMobileToggle}>
+            X
+          </div>
+        </div>
+        {searchQuery && (
+          <SearchList
+          className="Mobile"
+          titleList={TitleArray} setSearchQuery={setSearchQuery} />
+        )}
       </div>
       <FaSearch
         className="vid_bell_Navbar Mobile"

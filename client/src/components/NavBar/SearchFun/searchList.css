@@ -1,17 +1,8 @@
-.container_SearchList {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(240, 248, 255, 0.296);
-  z-index: 90;
-}
 
 .container_SearchList2 {
   background-color: white;
   /* flex-grow: 1; */
-  min-width: 30rem;
+  width: 90.75%;
   top: 2.7rem;
   height: fit-content;
   z-index: 91;
@@ -25,4 +16,11 @@
 }
 .titleItem:hover {
   background-color: rgba(166, 202, 234, 0.516);
+}
+
+@media (max-width:1100px){
+  .container_SearchList2 {
+    width: 20rem;
+  }
+
 }
