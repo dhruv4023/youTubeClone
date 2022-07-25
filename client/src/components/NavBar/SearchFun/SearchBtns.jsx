@@ -24,30 +24,29 @@ function SearchBtns({ searchMobileToggle }) {
     .map((m) => m.videoTitle);
   return (
     <>
-    
-    <div className="search_div2">
-      <input
-        type="text"
-        className="Search_Navbar"
-        placeholder="Search"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onClick={(e) => setSearchList(true)}
-      />
-      <Link to={`/search/${searchQuery}`}>
-        <FaSearch
-          onClick={(e) => setSearchList(false)}
-          className="searchIcon_Navbar"
+      <div className="search_div2">
+        <input
+          type="text"
+          className="Search_Navbar"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onClick={(e) => setSearchList(true)}
         />
-      </Link>
-      <BsMicFill size={20} className="mic_Navbar" />
-      {searchQuery && searchList && (
-        <SearchList
-          className="search"
-          titleList={TitleArray}
-          setSearchQuery={setSearchQuery}
-        />
-      )}
+        <Link to={`/search/${searchQuery}`}>
+          <FaSearch
+            onClick={(e) => setSearchList(false)}
+            className="searchIcon_Navbar"
+          />
+        </Link>
+        <BsMicFill size={20} className="mic_Navbar" />
+        {searchQuery && searchList && (
+          <SearchList
+            className="search"
+            titleList={TitleArray}
+            setSearchQuery={setSearchQuery}
+          />
+        )}
       </div>
     </>
   );

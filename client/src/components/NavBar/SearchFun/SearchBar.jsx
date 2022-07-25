@@ -4,20 +4,17 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import SearchBtns from "./SearchBtns";
 import "./searchBar.css";
+
 function SearchBar() {
-  const [searchMobile, setSearchMobile] = useState({
-    mobile: { display: "none" },
-    // web: { display: "flex" },
-  });
+  const [searchMobile, setSearchMobile] = useState({ display: "none" });
   const searchMobileToggle = () => {
-    console.log(searchMobile.mobile);
-    if (searchMobile.mobile.display === "none") {
+    if (searchMobile.display === "none") {
       setSearchMobile({
-        mobile: { display: "block" },
+        display: "flex",
       });
     } else {
       setSearchMobile({
-        mobile: { display: "none" },
+        display: "none",
       });
     }
   };
@@ -27,20 +24,24 @@ function SearchBar() {
 
   return (
     <>
-      <div className="webView">
-        <div className="search_div">
-            <SearchBtns /> 
+      <div className="search_div">
+        <div className="webView">
+          <SearchBtns />
         </div>
       </div>
-      {/* <div
-        className="searchBar_Navbar_Mobile Mobile"
-        style={searchMobile.mobile}
-      >
-        <SearchBtns />
-        <div className="X_SEacrbar_mobile Mobile" onClick={searchMobileToggle}>
-          X
+      <div className="Mobile">
+        <div className="searchBar_Navbar_Mobile" style={searchMobile}>
+          <SearchBtns />
+          <div
+            className="X_SEacrbar_mobile Mobile"
+            onClick={searchMobileToggle}
+          >
+            X
+          </div>
         </div>
-      </div> */}
+      </div>
+      {/*
+       */}
       {/*
         <div className="search_div">
           <input

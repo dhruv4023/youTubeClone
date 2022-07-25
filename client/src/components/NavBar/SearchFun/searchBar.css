@@ -1,11 +1,11 @@
-.webView{
-    margin: auto;
-    flex-grow: 1;
-}
 .search_div {
   margin: auto;
+  flex-grow: 2;
   display: flex;
   height: 2rem;
+}
+.webView{
+  margin: auto;
 }
 .search_div2 {
   display: flex;
@@ -41,25 +41,25 @@
 .searchBar_Navbar_Mobile {
   background-color: rgb(26, 25, 25);
   position: absolute;
-  width: 100vw;
-  height: calc(3rem - 2px);
+  height: calc(3.5rem - 2px);
   top: 0;
   left: 0;
-  display: none;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.3rem;
+  display: none;
 }
 .Search_Navbar_Mobile {
+  /* display: flex;
+  position: absolute; */
   height: 1.6rem;
   border-radius: 5px;
   padding-left: 1%;
-  width: 79%;
+  width: 100%;
 }
 
 .Mobile {
   display: none;
-}
-.webview {
-  display: block;
 }
 
 @media (max-width: 1050px) {
@@ -69,7 +69,7 @@
 }
 @media (max-width: 638px) {
   .Search_Navbar_Mobile {
-    display: flex;
+   display: flex;
   }
   /* .Search_Navbar,
   .mic_Navbar,
