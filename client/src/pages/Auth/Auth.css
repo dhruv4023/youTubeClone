@@ -2,7 +2,7 @@
   width: 100vw;
   position: absolute;
   height: 100vh;
-  z-index: 50;
+  z-index: 500;
   top: 0;
   right: 0;
   box-sizing: border-box;
@@ -11,14 +11,14 @@
 .Auth_cont2 {
   display: flex;
   position: absolute;
-  right: 5rem;
+  right: 2.5rem;
   background-color: rgb(16, 16, 16);
   top: 1rem;
   text-align: center;
   flex-direction: column;
   border: 1px solid rgba(103, 102, 102, 0.619);
   color: aliceblue;
-  z-index: 100;
+  z-index: 500;
 }
 .User_Details_Auth {
   margin: 0 auto;

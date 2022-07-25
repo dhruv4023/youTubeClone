@@ -25,7 +25,7 @@ function Home() {
     "Movies",
     "Comedy",
     "Live",
-    "Gming",
+    "Gaming",
     "Animation",
   ];
   return (
