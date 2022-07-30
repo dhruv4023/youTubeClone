@@ -8,17 +8,17 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import WHLvideoLst from "../WHL/WHLvideoLst";
 import "./Library.css";
 function Library() {
-    // const currentUser = useSelector((state) => state.currentUserReducer);
-  const currentUser = {
-    result: {
-      desc: "Hello EveryOne Welcome to my Chanel !!!",
-      email: "dhruv20345@gmail.com",
-      joinedOn: "2022-07-15T19:23:15.011Z",
-      name: "World",
-      __v: 0,
-      _id: "62d1bea3fd32862897ac6de1",
-    },
-  };
+    const currentUser = useSelector((state) => state.currentUserReducer);
+  // const currentUser = {
+  //   result: {
+  //     desc: "Hello EveryOne Welcome to my Chanel !!!",
+  //     email: "dhruv20345@gmail.com",
+  //     joinedOn: "2022-07-15T19:23:15.011Z",
+  //     name: "World",
+  //     __v: 0,
+  //     _id: "62d1bea3fd32862897ac6de1",
+  //   },
+  // };
 
   const watchLater = useSelector((state) => state.watchLaterReducer);
   // ?.data?.filter((q) => q?.Viewer === currentUser?.result?._id)
