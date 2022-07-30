@@ -40,30 +40,6 @@ function SearchBar() {
           </div>
         </div>
       </div>
-      {/*
-       */}
-      {/*
-        <div className="search_div">
-          <input
-            type="text"
-            className="Mobile Search_Navbar"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onClick={(e)=>setSearchList(true)}
-            placeholder="Search"
-          />
-          <Link to={`/search/${searchQuery}`}>
-            <FaSearch onClick={(e)=>setSearchList(false)}  className="searchIcon_Navbar Mobile" />
-          </Link>
-          <BsMicFill size={20} className="mic_Navbar Mobile" />
-
-        </div>
-        {searchList&& searchQuery && (
-          <SearchList
-          className="Mobile"
-          titleList={TitleArray} setSearchQuery={setSearchQuery} />
-        )}
-      */}
       <FaSearch
         className="vid_bell_Navbar Mobile"
         size={20}

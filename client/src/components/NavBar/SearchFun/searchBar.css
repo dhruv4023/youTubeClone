@@ -41,6 +41,7 @@
 .searchBar_Navbar_Mobile {
   background-color: rgb(26, 25, 25);
   position: absolute;
+  z-index: 5;
   height: calc(3.5rem - 2px);
   top: 0;
   left: 0;
