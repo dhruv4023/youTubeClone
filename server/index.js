@@ -35,7 +35,8 @@ app.use('/comments',commentRoutes)
 // app.use('/vote',voteRoutes)
 
 
-const PORT = process.env.PORT || 5500
+const PORT = process.env.PORT 
+// const PORT = 5501
 
 const DB_URL= process.env.CONNECTION_URL
 

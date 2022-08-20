@@ -40,7 +40,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
 
   const onSuccess = (response) => {
     const Email = response?.profileObj.email;
-
+    console.log(Email)
     dispatch(login({ email: Email }));
     // setLoginPage(false);
   };
