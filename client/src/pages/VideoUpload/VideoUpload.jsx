@@ -49,6 +49,7 @@ function VideoUpload({ setUploadVideo }) {
       formData.append("title", title);
       formData.append("chanel", User?.result?._id);
       formData.append("Uploder", User?.result?.name);
+      console.log(singleFileOptions)
       dispatch(
         uploadVideo({
           formData,
