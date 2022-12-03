@@ -73,6 +73,7 @@
 .mic_Navbar,
 .vid_bell_Navbar {
   color: whitesmoke;
+  cursor: pointer;
   margin: auto 0.7rem;
 }
 .box_apps {
@@ -98,6 +99,7 @@
   margin: auto 1rem;
   font-size: x-large;
   font-weight: bolder;
+  cursor: pointer;
 }
 .Mobile {
   display: none;

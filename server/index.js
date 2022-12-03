@@ -17,11 +17,10 @@ app.use(Express.json({ limit: "30mb", extended: true }))
 app.use(Express.urlencoded({ limit: "30mb", extended: true }))
 app.use(Express.static('public'))
 app.use(cors());
-// app.use(fileupload());
-
 
 app.get('/', (req, res) => {
     res.send("hello");
+    // res.sendFile("index.html");
 })
 
 app.use(bodyParser.json());
@@ -31,50 +30,17 @@ app.use('/user',userRoutes)
 app.use('/video',videoRoutes)
 app.use('/comments',commentRoutes)
 
-// app.use('/answer',answerRoutes)
-// app.use('/vote',voteRoutes)
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Server Running on the http://localhost:${PORT}`);
+});
 
-
-const PORT = process.env.PORT 
-// const PORT = 5501
-
-const DB_URL= process.env.CONNECTION_URL
-
-
-
-mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => app.listen((PORT), () => { console.log(`server Running on the http://localhost:${PORT}`) }))
-.catch((err) => { console.log(err.message) })
-
-
-// app.post('/init-video',  (req, res)=> {
-//     console.log(req.file)
-//     // const data=req.body;
-//     // console.log(data.src)
-//     // mongodb.MongoClient.connect("mongodb://localhost:27017", function (error, client) {
-//     // if (error) {
-//     //   res.json(error);
-//     //   return;
-//     // }
-//     // // connect to the videos database
-//     // const db = client.db('videos');
-
-//     // // Create GridFS bucket to upload a large file
-//     // const bucket = new mongodb.GridFSBucket(db);
-
-//     // // create upload stream using GridFS bucket
-//     // const videoUploadStream = bucket.openUploadStream('bigbuck');
-
-//     // // You can put your file instead of bigbuck.mp4
-//     // const videoReadStream = fs.createReadStream(data.src);
-
-//     // // Finally Upload!
-//     // videoReadStream.pipe(videoUploadStream);
-
-//     // // All done!
-//     // res.status(200).send("Done...");
-//   // });
-// });
-
-
-/* git push heroku master */
+mongoose
+  .connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("MongoDB database connected");
+  })
+  .catch((error) => {
+    // console.log(error);
+    console.log("db not connected");
+  });
