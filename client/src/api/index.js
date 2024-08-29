@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { redirect } from 'react-router-dom'
 
 const API = axios.create({ baseURL: `${process.env.REACT_APP_SERVER}` })
 // const API = axios.create({ baseURL: 'https://youtubeclone4023.herokuapp.com' })

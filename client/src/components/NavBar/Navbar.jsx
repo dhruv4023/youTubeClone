@@ -20,7 +20,6 @@ function Navbar({ wdtToggle, handleEditChanel }) {
   };
   return (
     <>
-    {`${process.env.REACT_APP_SERVER}/auth/google`}
       <div className="container_Navbar">
         <div className="burger_logo">
           <div className="burger" onClick={() => wdtToggle()}>

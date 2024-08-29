@@ -6,7 +6,7 @@ import { updateUserData } from "../../actions/user";
 import "./editChanel.css";
 
 import "../Auth/loginSignupPage.css";
-import { login } from "../../actions/auth";
+// import { login } from "../../actions/auth";
 function EditChanelUserData({ setEditChanel }) {
   const dispatch = useDispatch();
 
@@ -29,9 +29,9 @@ function EditChanelUserData({ setEditChanel }) {
       );
       setEditChanel(false);
       alert("Done !!!");
-      setTimeout(() => {
-        dispatch(login({ email: currentUser?.result.email }));
-      }, 5000);
+      // setTimeout(() => {
+      //   dispatch(login({ email: currentUser?.result.email }));
+      // }, 5000);
     }
   };
   return (
