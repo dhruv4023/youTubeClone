@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { redirect } from 'react-router-dom'
 
 const API = axios.create({ baseURL: `${process.env.REACT_APP_SERVER}` })
 // const API = axios.create({ baseURL: 'https://youtubeclone4023.herokuapp.com' })
@@ -11,8 +12,6 @@ API.interceptors.request.use((req) => {
     return req;
 })
 
-export const login = (authData) => API.post('/user/login', authData);
-export const signup = (authData) => API.post('/user/signup', authData);
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
 export const updateUserData = (id, updateData) => API.patch(`/user/update/${id}`, updateData);
 

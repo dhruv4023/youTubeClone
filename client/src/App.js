@@ -1,94 +1,65 @@
 import "./App.css";
 import Navbar from "./components/NavBar/Navbar";
-// import LoginSignupPage from "./pages/Auth/loginSignupPage";
 import { BrowserRouter as Router } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import AllRoutes from "./components/AllRoutes";
-import VideoUpload from "./pages/VideoUpload/VideoUpload";
-import EditChanelUserData from "./pages/ChanelPage/EditChanelUserData";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchAllUsers } from "./actions/user";
-import { getVideos } from "./actions/video";
-import { getwatchLater } from "./actions/watchlater";
-import { getHistory } from "./actions/history";
-import { getlikedVideo } from "./actions/likedVideo";
-import { getAllcomments } from "./actions/comments";
-import BroadLeftSidebar from "./components/LeftSidebar/BroadLeftSidebar";
+// import AllRoutes from "./components/AllRoutes";
+// import VideoUpload from "./pages/VideoUpload/VideoUpload";
+// import EditChanelUserData from "./pages/ChanelPage/EditChanelUserData";
+// import BroadLeftSidebar from "./components/LeftSidebar/BroadLeftSidebar";
+
+// import { fetchAllUsers } from "./actions/user";
+// import { getVideos } from "./actions/video";
+// import { getwatchLater } from "./actions/watchlater";
+// import { getHistory } from "./actions/history";
+// import { getlikedVideo } from "./actions/likedVideo";
+// import { getAllcomments } from "./actions/comments";
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchAllUsers());
-    dispatch(getVideos());
-    dispatch(getHistory());
-    dispatch(getwatchLater());
-    dispatch(getAllcomments());
-    dispatch(getlikedVideo());
+    // const fetchData = () => {
+    //   dispatch(fetchAllUsers());
+    //   dispatch(getVideos());
+    //   dispatch(getHistory());
+    //   dispatch(getwatchLater());
+    //   dispatch(getAllcomments());
+    //   dispatch(getlikedVideo());
+    // };
+
+    // fetchData();
   }, [dispatch]);
 
-  const [broadLeftSidebarBtn, setbroadLeftSidebarBtn] = useState({
-    display: "none",
-  });
+  const [broadLeftSidebarBtn, setBroadLeftSidebarBtn] = useState("none");
 
-  const wdtToggle = () => {
-    console.log(broadLeftSidebarBtn)
-    if (broadLeftSidebarBtn.display === "none")
-      setbroadLeftSidebarBtn({
-        display: "flex",
-      });
-    else
-      setbroadLeftSidebarBtn({
-        display: "none",
-      });
+  const toggleSidebar = () => {
+    setBroadLeftSidebarBtn((prev) => (prev === "none" ? "flex" : "none"));
   };
-  // console.log(`${process.env.REACT_APP_SERVER}`)
+
   const [uploadVideo, setUploadVideo] = useState(false);
-  const [EditChanel, setEditChanel] = useState(false);
-  // const [loginPage, setLoginPage] = useState(false);
-  // const [login, setLogin] = useState(true);
-
-  // const handleLogin = () => {
-  //   // setLogin(true);
-  //   setLoginPage(true);
-  // };
-
-  const handleUpload = () => {
-    // console.log(uploadVideo)
-    setUploadVideo(true);
-  };
-
-  const handleEditChanel = () => {
-    // console.log(uploadVideo)
-    setEditChanel(true);
-  };
+  const [editChanel, setEditChanel] = useState(false);
 
   return (
-    <>
-      <Router>
-        <div className="App">
-          {/* {loginPage && (
-            <LoginSignupPage
-              setLoginPage={setLoginPage}
-            />
-          )} */}
-
-          {uploadVideo && <VideoUpload setUploadVideo={setUploadVideo} />}
-          {EditChanel && <EditChanelUserData setEditChanel={setEditChanel} />}
-          <Navbar
-            wdtToggle={wdtToggle}
-            // setLoginPage={setLoginPage}
-            handleEditChanel={handleEditChanel}
-          />
-          <BroadLeftSidebar wdtToggle={wdtToggle} broadLeftSidebarBtn={broadLeftSidebarBtn} />
-          <AllRoutes
-            handleUpload={handleUpload}
-            handleEditChanel={handleEditChanel}
-          />
-        </div>
-      </Router>
-    </>
+    <Router>
+      <div className="App">
+        {/* {uploadVideo && <VideoUpload setUploadVideo={setUploadVideo} />}
+        {editChanel && <EditChanelUserData setEditChanel={setEditChanel} />} */}
+        <Navbar
+          wdtToggle={toggleSidebar}
+          handleEditChanel={() => setEditChanel(true)}
+        />
+        {/* <BroadLeftSidebar
+          wdtToggle={toggleSidebar}
+          broadLeftSidebarBtn={{ display: broadLeftSidebarBtn }}
+        /> */}
+        {/* <AllRoutes
+          handleUpload={() => setUploadVideo(true)}
+          handleEditChanel={() => setEditChanel(true)}
+        /> */}
+      </div>
+    </Router>
   );
 }
 

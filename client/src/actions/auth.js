@@ -1,26 +1,13 @@
 
-import * as api from '../api'
+import { redirect } from 'react-router-dom';
 import { setCurrentUser } from './currentUser';
 import { fetchAllUsers } from './user';
-// export const signup = (authData) => async (dispatch) => {
-//     try {
-//         // console.log(authData)
-//         const { data } = await api.signup(authData);
-//         dispatch({ type: 'AUTH', data });
-//         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-//        dispatch(fetchAllUsers());
-//     } catch (error) {
-//         // console.log(error.response.data);
-//         alert(error.response.data.message);
-//     }
-// }
-export const login = (authData) => async (dispatch) => {
+
+export const login = () => async (dispatch) => {
     try {
-        // console.log(authData)
-        const { data } = await api.login(authData);
-        dispatch({ type: 'AUTH', data });
-        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-       dispatch(fetchAllUsers());
+        // dispatch({ type: 'AUTH', data });
+        // dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+        // dispatch(fetchAllUsers());
     } catch (error) {
         // console.log(error.response.data);
         alert(error.response.data.message);

@@ -2,14 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 
-import { applyMiddleware, compose } from "redux";
-import { createStore } from "redux";
-import thunk from "redux-thunk";
-import Reducers from "./reducers";
+import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-const store = createStore(Reducers, compose(applyMiddleware(thunk)));
+import rootReducer from "./reducers";
+
+// Redux Toolkit simplifies the store configuration
+const store = configureStore({
+  reducer: rootReducer,
+  // You can add any middleware here, `thunk` is included by default
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,7 +23,3 @@ root.render(
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
