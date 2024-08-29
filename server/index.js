@@ -24,7 +24,14 @@ initializePassport(passport);
 app.use(Express.json({ limit: "30mb", extended: true }));
 app.use(Express.urlencoded({ limit: "30mb", extended: true }));
 app.use(Express.static("public"));
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://ytc4023.vercel.app',
+    'http://localhost:3000'
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, 
+}));
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
