@@ -4,13 +4,12 @@ import "./Auth.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
-import { googleLogout } from "@react-oauth/google";
 
 function Auth({ User, handleEditChanel, setAuthBtn }) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    googleLogout();
+    // googleLogout();
     dispatch(setCurrentUser(null));
     alert("Logged out successfully");
   };
