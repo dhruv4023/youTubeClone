@@ -1,5 +1,4 @@
-import likedVideo from "../models/likedVideo.js";
-import mongoose from "mongoose"
+import likedVideo from "../models/LikedVideo.js";
 
 export const likedVideoController = async (req, res) => {
   const likedVideoData = req.body;

@@ -1,4 +1,4 @@
-import SingleFile from "../models/singlefile.js";
+import SingleFile from "../models/SingleFile.js";
 import User from "../models/Auth.js";
 
 export const getVideosByID = async (req, res, next) => {

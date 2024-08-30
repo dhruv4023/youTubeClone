@@ -13,7 +13,7 @@ import passport from 'passport';
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import videoRoutes from "./routes/video.js";
-import commentRoutes from "./routes/Comment.js";
+import commentRoutes from "./routes/comment.js";
 // import * as url from "url";
 import MongoStore from "connect-mongo"
 // const __dirname = url.fileURLToPath(new URL(".", import.meta.url));

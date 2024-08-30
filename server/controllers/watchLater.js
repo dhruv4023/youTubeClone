@@ -1,5 +1,5 @@
-import watchLater from "../models/watchLater.js";
-import mongoose from "mongoose"
+import watchLater from "../models/WatchLater.js";
+
 
 export const watchLaterController = async (req, res) => {
   const watchLaterData = req.body;

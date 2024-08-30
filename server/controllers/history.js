@@ -1,6 +1,5 @@
 
-import history from "../models/history.js"
-// import mongoose from "mongoose"
+import history from "../models/History.js"
 
 export const historyController = async (req, res) => {
     const historyData = req.body;

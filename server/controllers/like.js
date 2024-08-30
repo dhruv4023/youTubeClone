@@ -1,4 +1,4 @@
-import file from "../models/singlefile.js";
+import file from "../models/SingleFile.js";
 import mongoose from "mongoose";
 
 export const likeController = async (req, res) => {

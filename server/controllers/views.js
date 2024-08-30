@@ -1,5 +1,4 @@
-import files from "../models/singlefile.js";
-import mongoose from "mongoose";
+import files from "../models/SingleFile.js";
 
 export const ViewController = async (req, res) => {
   const { id: _id } = req.params;
