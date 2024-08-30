@@ -9,9 +9,9 @@ function Chanel({ wdt, handleUpload, handleEditChanel }) {
   const { Cid } = useParams();
 
   // Memoize the filtered and reversed video list for better performance
-  const videoReducer = useSelector((state) => state.videoReducer);
-  const vids = videoReducer?.data
-    ?.filter((q) => q?.videoChanel === Cid)
+  const videoReducer = useSelector((state) => state.videos);
+  const vids = videoReducer
+    ?.filter((q) => q.videoChanel._id === Cid)
     ?.reverse();
 
   return (

@@ -24,7 +24,7 @@ function VideoPage() {
         const response = await axios.get(
           `${process.env.REACT_APP_SERVER}/video/get/${vid}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setVideo(response.data);
       } catch (error) {
         console.error("Failed to fetch video data", error);

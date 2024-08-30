@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Chanel.css";
+import "./ChanelStyle.css";
 import { FaEdit, FaUpload } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -29,7 +29,7 @@ function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
       <div className="chanelLogo_chanel">
         <b>
           {currentChanel ? (
-            <>{currentChanel?.name.charAt(0).toUpperCase()}</>
+            <>{currentChanel.name.charAt(0).toUpperCase()}</>
           ) : (
             <>C</>
           )}
