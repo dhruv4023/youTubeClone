@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import ShowVideoGrid from "../ShowVideoGrid/ShowVideoGrid";
-import DescribeChanel from "./DescribeChanel";
+import DesChanel from "./DesChanel";
 
 function Chanel({ wdt, handleUpload, handleEditChanel }) {
   const { Cid } = useParams();
@@ -18,7 +18,7 @@ function Chanel({ wdt, handleUpload, handleEditChanel }) {
     <div className="container_pages">
       <LeftSidebar />
       <div className="container_pages2">
-        <DescribeChanel
+        <DesChanel
           Cid={Cid}
           handleUpload={handleUpload}
           handleEditChanel={handleEditChanel}

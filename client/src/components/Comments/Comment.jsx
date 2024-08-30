@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import DisplayComments from "./DisplayComments.jsx";
 import { postComment } from "../../actions/comments";
 import axios from "axios";
@@ -55,7 +55,7 @@ export default function Comment({ videoId }) {
         },
         token
       );
-      fetchComments()
+      fetchComments();
       setComment("");
     }
   };
@@ -87,7 +87,7 @@ export default function Comment({ videoId }) {
           .reverse()
           .map((m) => (
             <DisplayComments
-            fetchComments={fetchComments}
+              fetchComments={fetchComments}
               key={m._id}
               cmtId={m._id}
               userId={m.userId}

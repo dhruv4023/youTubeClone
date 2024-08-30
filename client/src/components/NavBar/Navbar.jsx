@@ -31,7 +31,7 @@ function Navbar({ wdtToggle, handleEditChanel }) {
         { withCredentials: true }
       );
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         dispatch(setLogin({ user: response.data, token: response.data.token }));
       }else{
         dispatch(setLogout());

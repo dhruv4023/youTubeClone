@@ -4,7 +4,7 @@ import { FaEdit, FaUpload } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
+function DesChanel({ Cid, handleUpload, handleEditChanel }) {
   const [currentChanel, setCurrentChanel] = useState(null);
 
   const currentUser = useSelector((state) => state.user);
@@ -55,4 +55,4 @@ function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
   );
 }
 
-export default DescribeChanel;
+export default DesChanel;
