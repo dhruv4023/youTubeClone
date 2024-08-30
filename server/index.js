@@ -26,10 +26,7 @@ app.use(Express.json({ limit: "30mb", extended: true }));
 app.use(Express.urlencoded({ limit: "30mb", extended: true }));
 app.use(Express.static("public"));
 app.use(cors({
-  origin: [
-    'https://ytc4023.vercel.app',
-    'http://localhost:3000'
-  ],
+  origin: ["*"],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
