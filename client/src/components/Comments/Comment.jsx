@@ -1,71 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DisplayComments from "./DisplayComments.jsx";
-
-// import { useParams } from "react-router-dom";
 import { postComment } from "../../actions/comments";
+import axios from "axios";
 
 import "./comment.css";
 
 export default function Comment({ videoId }) {
   const [comment, setComment] = useState("");
-  const currentUser = useSelector((state) => state.currentUserReducer);
-  const commentsList = useSelector((state) => state.commentReducer);
+  const [commentsList, setCommentsList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const currentUser = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
 
-  // console.log(commentsList);
-
-  const checkAuth = () => {
-    if (currentUser === null) {
-      alert("login or signup to post Your Comments");
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_SERVER}/comments/get/${videoId}`
+      );
+      console.log(response.data);
+      setCommentsList(response.data);
+    } catch (err) {
+      setError("Failed to load comments");
+    } finally {
+      setLoading(false);
     }
   };
+  useEffect(() => {
+    fetchComments();
+  }, [videoId]);
 
-  const dispatch = useDispatch();
+  const checkAuth = () => {
+    if (!currentUser) {
+      alert("Login or signup to post your comments");
+      return false;
+    }
+    return true;
+  };
 
-  const handleSubmitComment = (e) => {
+  const handleSubmitComment = async (e) => {
     e.preventDefault();
+    if (!checkAuth()) return;
+
     if (!comment) {
-      alert("type your comment");
+      alert("Please type your comment");
     } else {
-      dispatch(
-        postComment({
+      await postComment(
+        {
           videoId: videoId,
-          userId: currentUser?.result?._id,
+          userId: currentUser.id,
           commentBody: comment,
-          userCommented: currentUser?.result.name,
-        })
+          userCommented: currentUser.name,
+        },
+        token
       );
+      fetchComments()
       setComment("");
     }
   };
+
+  if (loading) return <p>Loading comments...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <>
-      <form
-        onSubmit={handleSubmitComment}
-        onClick={checkAuth}
-        className="commentSubForm"
-      >
+      <form onSubmit={handleSubmitComment} className="commentSubForm">
         <input
           type="text"
-          placeholder="add Comment... "
+          placeholder="Add a comment..."
           onChange={(e) => setComment(e.target.value)}
           className="commentIBox"
           value={comment}
-          disabled={currentUser == null}
+          disabled={!currentUser}
         />
         <input
           type="submit"
-          disabled={currentUser == null}
+          disabled={!currentUser}
           className="commentAddBtn"
-          value="add"
+          value="Add"
         />
       </form>
       <div className="displayComment_commentsPage">
-        {commentsList?.data
-          ?.filter((q) => videoId === q?.videoId).reverse()
+        {commentsList
+          .slice()
+          .reverse()
           .map((m) => (
-            // console.log(m)
             <DisplayComments
+            fetchComments={fetchComments}
+              key={m._id}
               cmtId={m._id}
               userId={m.userId}
               cmtBody={m.commentBody}
@@ -77,9 +100,3 @@ export default function Comment({ videoId }) {
     </>
   );
 }
-/*
-cmtId={m._id}
-cmtBody={m.commentBody}
-cmtOn={m.commentOn}
-usercmt={m.userCommented}
-*/

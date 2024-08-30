@@ -6,64 +6,85 @@ import "./comment.css";
 
 import { editComment, deleteComment } from "../../actions/comments";
 
-export default function DisplayComments({ cmtId, cmtBody, cmtOn, userId,usercmt }) {
-  const User = useSelector((state) => state.currentUserReducer);
+export default function DisplayComments({
+  cmtId,
+  cmtBody,
+  cmtOn,
+  userId,
+  usercmt,
+  fetchComments,
+}) {
+  const User = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
 
   const [edit, setEdit] = useState(false);
   const [commentEdit, setCommentEdit] = useState("");
   const [commentId, setCommentId] = useState("");
+  const [loading, setLoading] = useState(false); // New loading state
 
-  const dispatch = useDispatch();
   const handleEdit = (ctId, ctbdy) => {
     setEdit(true);
     setCommentId(ctId);
     setCommentEdit(ctbdy);
   };
 
-  const handleSubmitComment = (e) => {
+  const handleSubmitComment = async (e) => {
     e.preventDefault();
     if (!commentEdit) {
-      alert("type your comment");
+      alert("Type your comment");
     } else {
-      dispatch(
-        editComment({
+      setLoading(true); // Start loading
+      await editComment(
+        {
           id: commentId,
           commentBody: commentEdit,
-        })
+        },
+        token
       );
       setCommentEdit("");
+      setLoading(false); // Stop loading
     }
     setEdit(false);
+    fetchComments();
   };
 
-  const handleDel = (id) => {
-    dispatch(deleteComment(id));
+  const handleDel = async (id) => {
+    setLoading(true); // Start loading
+    await deleteComment(id, token);
+    setLoading(false); // Stop loading
+    fetchComments();
   };
 
   return (
     <>
-      {edit === false ? (
-        <p className="commentBdy">{cmtBody}</p>
+      {loading ? ( // Show loading indicator
+        <p>Loading...</p>
       ) : (
-        <form className="commentSubForm" onSubmit={handleSubmitComment}>
-          <input
-            type="text"
-            placeholder="add Comment... "
-            value={commentEdit}
-            onChange={(e) => setCommentEdit(e.target.value)}
-            className="commentIBox"
-          />
-          <input type="submit" className="commentAddBtn" value="save" />
-        </form>
-      )}
-      <p className="userCommented">
-        - {usercmt} commented {moment(cmtOn).fromNow()}
-      </p>
-      {User?.result?._id === userId && (
-        <p className="EditDel">
-          <i onClick={() => handleEdit(cmtId, cmtBody)}>Edit</i>{" "}
-          <i onClick={() => handleDel(cmtId)}>delete</i>
-        </p>
+        <>
+          {edit === false ? (
+            <p className="commentBdy">{cmtBody}</p>
+          ) : (
+            <form className="commentSubForm" onSubmit={handleSubmitComment}>
+              <input
+                type="text"
+                placeholder="Add Comment... "
+                value={commentEdit}
+                onChange={(e) => setCommentEdit(e.target.value)}
+                className="commentIBox"
+              />
+              <input type="submit" className="commentAddBtn" value="Save" />
+            </form>
+          )}
+          <p className="userCommented">
+            - {usercmt} commented {moment(cmtOn).fromNow()}
+          </p>
+          {User.id === userId && (
+            <p className="EditDel">
+              <i onClick={() => handleEdit(cmtId, cmtBody)}>Edit</i>{" "}
+              <i onClick={() => handleDel(cmtId)}>Delete</i>
+            </p>
+          )}
+        </>
       )}
     </>
   );

@@ -5,10 +5,10 @@ import ShowVideoGrid from "../ShowVideoGrid/ShowVideoGrid";
 
 import "./yourVideo.css";
 function YourVideos() {
-  const currentUser = useSelector((state) => state.currentUserReducer);
+  const currentUser = useSelector((state) => state.user);
 
   const vids = useSelector((state) => state.videoReducer)
-    ?.data?.filter((q) => q?.videoChanel === currentUser?.result?._id)
+    ?.data?.filter((q) => q?.videoChanel === currentUser?.user?.id)
     ?.reverse();
   return (
     <>

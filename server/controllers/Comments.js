@@ -15,24 +15,25 @@ export const postcomment = async (req, res) => {
 }
 
 export const deletecomment = async (req, res) => {
-        const { id: _id } = req.params;
-        // console.log(_id)
+    const { id: _id } = req.params;
+    // console.log(_id)
     //     // const userId = req.userId;
-        if (!mongoose.Types.ObjectId.isValid(_id)) {
-            return res.status(404).send('comment unavailable...')
-        }
-        try {
-            await Comment.findByIdAndRemove(_id);
-            // console.log("hello")
-            res.status(200).json({ message: "Comment Successfully deleted ..." })
-        } catch (error) {
-            res.status(400).json({ message: error.message })
-        }
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return res.status(404).send('comment unavailable...')
+    }
+    try {
+        await Comment.findByIdAndRemove(_id);
+        // console.log("hello")
+        res.status(200).json({ message: "Comment Successfully deleted ..." })
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 }
 
-export const getcomment = async (req, res) => {
+export const getCommentsByVideoId = async (req, res) => {
     try {
-        const commentsList = await Comment.find();
+        const { vid } = req.params
+        const commentsList = await Comment.find({ videoId: vid });
         res.status(200).json(commentsList);
     } catch (error) {
         res.status(404).json({ message: error.message });

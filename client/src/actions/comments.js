@@ -1,44 +1,56 @@
-import * as api from '../api'
+import axios from 'axios';
 
-
-export const postComment = (commentData) => async (dispatch) => {
+export const postComment = async (commentData, token) => {
     try {
-        const { data } = await api.postComment(commentData);
-        dispatch({ type: "POST_COMMENT", payload: data });
-        dispatch(getAllcomments())
+        const config = {
+            headers: {
+                Authorization: `${token}`,
+                "Content-Type": "application/json",
+            },
+        };
+        const { data } = await axios.post(`${process.env.REACT_APP_SERVER}/comments/post`, commentData, config)
+        return data;
     } catch (error) {
         console.log(error);
     }
 }
-
-export const editComment = (commentData) => async (dispatch) => {
+export const editComment = async (commentData, token) => {
     try {
+        const config = {
+            headers: {
+                Authorization: `${token}`,
+                "Content-Type": "application/json",
+            },
+        };
+
         const { id, commentBody } = commentData;
-        // console.log(id, commentBody)
-        const { data } = await api.editComment(id, commentBody);
-        dispatch({ type: 'POST_COMMENT', payload: data })
-        dispatch(getAllcomments())
-    } catch (error) {
-        console.log(error)
-    }
-}
-export const getAllcomments = () => async (dispatch) => {
-    try {
-        const { data } = await api.getAllcomments()
-        // console.log(data)
-        dispatch({ type: 'FETCH_ALL_COMMENTS', payload: data })
-    } catch (error) {
-        console.log(error)
-        console.log("error")
-    }
-}
 
-export const deleteComment = (id) => async (dispatch) => {
-    try {
-        // console.log(id)
-        await api.deleteComment(id)
-        dispatch(getAllcomments())
+        const { data } = await axios.patch(
+            `${process.env.REACT_APP_SERVER}/comments/edit/${id}`,
+            { commentBody },
+            config
+        );
+
+        return data;
     } catch (error) {
-        console.log(error)
+        console.log(error);
+    }
+}
+export const deleteComment = async (id, token) => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `${token}`,
+            },
+        };
+
+        const { data } = await axios.delete(
+            `${process.env.REACT_APP_SERVER}/comments/delete/${id}`,
+            config
+        );
+
+        return data;
+    } catch (error) {
+        console.log(error);
     }
 }

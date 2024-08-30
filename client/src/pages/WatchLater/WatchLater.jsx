@@ -20,7 +20,7 @@ export default WatchLater
 // function WatchLater({ wdt }) {
   
 //   const watchLater = useSelector((state) => state.watchLaterReducer);
-//   const currentUser = useSelector((state) => state.currentUserReducer);
+//   const currentUser = useSelector((state) => state.user);
 //   console.log(currentUser)
 //   console.log(watchLater)
 //   // const currentUser =2
@@ -34,10 +34,10 @@ export default WatchLater
 //           </div>
 //           <div className="box_watchLater">
 //             <h1> watchLater </h1>
-//             {currentUser?.result?._id ? <>
+//             {currentUser?.user?.id ? <>
           
 //            {watchLater?.data
-//               ?.filter((q) =>( q?.Viewer === currentUser?.result?._id))
+//               ?.filter((q) =>( q?.Viewer === currentUser?.user?.id))
 //               .map((m) => {
 //                 console.log(m)
 //                 return (

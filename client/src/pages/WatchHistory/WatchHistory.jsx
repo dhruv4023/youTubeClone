@@ -22,7 +22,7 @@ export default WatchHistory
 // function WatchHistory({ wdt }) {
   
 //   const history = useSelector((state) => state.historyReducer);
-//   const currentUser = useSelector((state) => state.currentUserReducer);
+//   const currentUser = useSelector((state) => state.user);
 //   // console.log(currentUser)
 //   // console.log(history)
 //   // const currentUser =2
@@ -36,10 +36,10 @@ export default WatchHistory
 //           </div>
 //           <div className="box_watchLater">
 //             <h1> WatchHistory</h1>
-//             {currentUser?.result?._id ? <>
+//             {currentUser?.user?.id ? <>
           
 //            {history?.data
-//               ?.filter((q) =>( q?.Viewer === currentUser?.result?._id))
+//               ?.filter((q) =>( q?.Viewer === currentUser?.user?.id))
 //               .map((m) => {
 //                 console.log(m)
 //                 return (

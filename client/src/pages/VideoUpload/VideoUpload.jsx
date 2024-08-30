@@ -8,7 +8,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 function VideoUpload({ setUploadVideo }) {
   const dispatch = useDispatch();
-  const User = useSelector((state) => state.currentUserReducer);
+  const User = useSelector((state) => state.user);
 
   const [singleProgress, setSingleProgress] = useState(0); //
 

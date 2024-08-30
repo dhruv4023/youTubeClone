@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -8,16 +8,40 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { RiVideoAddLine } from "react-icons/ri";
 import logo from "./logo.ico";
 import Auth from "../../pages/Auth/Auth";
-import { login } from "../../actions/auth";
 import SearchBar from "./SearchFun/SearchBar";
+import { setCurrentUser } from "../../actions/currentUser";
+import axios from "axios";
+import { setLogin, setLogout } from "../../state";
 
 function Navbar({ wdtToggle, handleEditChanel }) {
-  const currentUser = useSelector((state) => state.currentUserReducer);
+  const currentUser = useSelector((state) => state.user);
   const [AuthBtn, setAuthBtn] = useState(false);
   const redirectToGoogleAuth = async () => {
-    console.log(`${process.env.REACT_APP_SERVER}/auth/google`)
     window.location.href = `${process.env.REACT_APP_SERVER}/auth/google`;
   };
+
+  useEffect(() => {
+    fetchSessionData();
+  }, []);
+  const dispatch = useDispatch();
+  const fetchSessionData = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_SERVER}/api/session-data`,
+        { withCredentials: true }
+      );
+
+      if (response.status == 200) {
+        dispatch(setLogin({ user: response.data, token: response.data.token }));
+      }else{
+        dispatch(setLogout());
+      }
+    } catch (error) {
+      // console.error("Error fetching session data:", error);
+      setCurrentUser(null);
+    }
+  };
+  // console.log(currentUser.user)
   return (
     <>
       <div className="container_Navbar">
@@ -56,26 +80,26 @@ function Navbar({ wdtToggle, handleEditChanel }) {
                 }}
               >
                 <p className="fstChar_logo_App">
-                  {currentUser?.result.name ? (
-                    <>{currentUser?.result.name.charAt(0).toUpperCase()}</>
+                  {currentUser.name ? (
+                    <>{currentUser.name.charAt(0).toUpperCase()}</>
                   ) : (
-                    <>{currentUser?.result.email.charAt(0).toUpperCase()}</>
+                    <>{currentUser.email.charAt(0).toUpperCase()}</>
                   )}
                 </p>
               </div>
             </>
           ) : (
-            <p onClick={() => redirectToGoogleAuth()} className="Auth_Btn">
+            <div onClick={() => redirectToGoogleAuth()} className="Auth_Btn">
               <BiUserCircle size={22} />
               <b>Sign In</b>
-            </p>
+            </div>
           )}
         </div>
       </div>
-      {AuthBtn && (
+      {AuthBtn && currentUser && (
         <Auth
           setAuthBtn={setAuthBtn}
-          User={currentUser}
+          user={currentUser}
           handleEditChanel={handleEditChanel}
         />
       )}

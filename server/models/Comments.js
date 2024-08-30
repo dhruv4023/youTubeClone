@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-    videoId: String,
-    userId: String,
-    commentBody: String,
-    userCommented: String,
+    videoId: { type: String },
+    userId: { type: String },
+    commentBody: { type: String },
+    userCommented: { type: String },
     commentOn: { type: Date, default: Date.now },
 })
 

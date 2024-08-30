@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Chanel.css";
 import { FaEdit, FaUpload } from "react-icons/fa";
 import { useSelector } from "react-redux";
-function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
-  // console.log(chanels);
+import axios from "axios";
 
-  const chanels = useSelector((state) => state.currentUserProfileReducer);
-  const currentChanel = chanels.filter((user) => user._id === Cid)[0];
-  const currentUser = useSelector((state) => state.currentUserReducer);
-  // console.log(currentChanel);
-  // const currentChanel = {
-  //   age: "2022-06-01T00:00:00.000Z",
-  //   email: "ab@mail.com",
-  //   joinedOn: "2022-06-28T13:13:11.541Z",
-  //   name: "ddd",
-  //   tags: [],
-  //   _id: "62bafe6752cea35a6c30685f",
-  // };
+function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
+  const [currentChanel, setCurrentChanel] = useState(null);
+
+  const currentUser = useSelector((state) => state.user);
+
+  useEffect(() => {
+    const fetchChanel = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER}/user/${Cid}`
+        );
+        setCurrentChanel(response.data);
+      } catch (error) {
+        console.error("Error fetching the chanel data", error);
+      }
+    };
+
+    fetchChanel();
+  }, [Cid]);
 
   return (
     <div className="container3_chanel">
@@ -25,7 +31,7 @@ function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
           {currentChanel ? (
             <>{currentChanel?.name.charAt(0).toUpperCase()}</>
           ) : (
-            <>c</>
+            <>C</>
           )}
         </b>
       </div>
@@ -33,15 +39,15 @@ function DescribeChanel({ Cid, handleUpload, handleEditChanel }) {
         <b>{currentChanel?.name}</b>
         <p>{currentChanel?.desc}</p>
       </div>
-      {currentUser?.result._id === currentChanel?._id && (
+      {currentUser.id === currentChanel?._id && (
         <>
-          <p className="Editbtn_Chanel">
+          <p className="Editbtn_Chanel" onClick={handleEditChanel}>
             <FaEdit />
-            <b onClick={()=>handleEditChanel()}>Edit Chanel</b>
+            <b>Edit Chanel</b>
           </p>
-          <p className="Uploadbtn_Chanel">
+          <p className="Uploadbtn_Chanel" onClick={handleUpload}>
             <FaUpload />
-            <b onClick={() => handleUpload()}>Upload Video</b>
+            <b>Upload Video</b>
           </p>
         </>
       )}

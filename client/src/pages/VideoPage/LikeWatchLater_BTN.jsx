@@ -23,7 +23,7 @@ import { BsThreeDots } from "react-icons/bs";
 function LikeWatchLater_BTN({ vv, vid }) {
   const dispatch = useDispatch();
 
-  const currentUser = useSelector((state) => state.currentUserReducer);
+  const currentUser = useSelector((state) => state.user);
 
   const watchLaterList = useSelector((state) => state.watchLaterReducer);
   const likedVideoList = useSelector((state) => state.likedVideoReducer);
@@ -38,12 +38,12 @@ function LikeWatchLater_BTN({ vv, vid }) {
   useEffect(() => {
     watchLaterList?.data
       .filter(
-        (q) => q?.videoId === vid && q?.Viewer === currentUser?.result._id
+        (q) => q?.videoId === vid && q?.Viewer === currentUser?.user.id
       )
       .map((m) => setWatchLater(true));
     likedVideoList?.data
       .filter(
-        (q) => q?.videoId === vid && q?.Viewer === currentUser?.result._id
+        (q) => q?.videoId === vid && q?.Viewer === currentUser?.user.id
       )
       .map((m) => setLike(true));
   }, []);
@@ -54,14 +54,14 @@ function LikeWatchLater_BTN({ vv, vid }) {
         setWatchLater(false);
         // console.log("s");
         dispatch(
-          deletewatchLater({ videoId: vid, Viewer: currentUser?.result._id })
+          deletewatchLater({ videoId: vid, Viewer: currentUser?.user.id })
         );
       } else {
         setWatchLater(true);
         dispatch(
           addTowatchLater({
             videoId: vid,
-            Viewer: currentUser?.result?._id,
+            Viewer: currentUser?.user?.id,
           })
         );
       }
@@ -81,7 +81,7 @@ function LikeWatchLater_BTN({ vv, vid }) {
           })
         );
         dispatch(
-          deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id })
+          deletelikedVideo({ videoId: vid, Viewer: currentUser?.user.id })
         );
       } else {
         setLike(true);
@@ -94,7 +94,7 @@ function LikeWatchLater_BTN({ vv, vid }) {
         dispatch(
           addTolikedVideo({
             videoId: vid,
-            Viewer: currentUser?.result?._id,
+            Viewer: currentUser?.user?.id,
           })
         );
       }
@@ -117,7 +117,7 @@ function LikeWatchLater_BTN({ vv, vid }) {
         );
       }
       dispatch(
-        deletelikedVideo({ videoId: vid, Viewer: currentUser?.result._id })
+        deletelikedVideo({ videoId: vid, Viewer: currentUser?.user.id })
       );
       setLike(false);
     } else {

@@ -43,4 +43,3 @@ const singleFileSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("VideoDetails", singleFileSchema);
-// module.exports = mongoose.model('SingleFile', singleFileSchema);

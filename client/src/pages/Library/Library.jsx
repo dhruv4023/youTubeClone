@@ -8,7 +8,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import WHLvideoLst from "../WHL/WHLvideoLst";
 import "./Library.css";
 function Library() {
-    const currentUser = useSelector((state) => state.currentUserReducer);
+    const currentUser = useSelector((state) => state.user);
   // const currentUser = {
   //   result: {
   //     desc: "Hello EveryOne Welcome to my Chanel !!!",
@@ -21,13 +21,13 @@ function Library() {
   // };
 
   const watchLater = useSelector((state) => state.watchLaterReducer);
-  // ?.data?.filter((q) => q?.Viewer === currentUser?.result?._id)
+  // ?.data?.filter((q) => q?.Viewer === currentUser?.user?.id)
   // .reverse();
   const history = useSelector((state) => state.historyReducer);
-  // ?.data?.filter((q) => q?.Viewer === currentUser?.result?._id)
+  // ?.data?.filter((q) => q?.Viewer === currentUser?.user?.id)
   // .reverse();
   const likedVideo = useSelector((state) => state.likedVideoReducer);
-  // ?.data?.filter((q) => q?.Viewer === currentUser?.result?._id)
+  // ?.data?.filter((q) => q?.Viewer === currentUser?.user?.id)
   // .reverse();
 
   //   console.log(currentUser);
@@ -52,7 +52,7 @@ function Library() {
                     {" "}
                     <WHLvideoLst
                       name={"History"}
-                      currentUser={currentUser?.result?._id}
+                      currentUser={currentUser?.user?.id}
                       whl={history}
                     />
                   </>
@@ -79,7 +79,7 @@ function Library() {
                     {" "}
                     <WHLvideoLst
                       name={"Watch Later"}
-                      currentUser={currentUser?.result?._id}
+                      currentUser={currentUser?.user?.id}
                       whl={watchLater}
                     />
                   </>
@@ -107,7 +107,7 @@ function Library() {
                   {" "}
                   <WHLvideoLst
                     name={"Liked Videos"}
-                    currentUser={currentUser?.result?._id}
+                    currentUser={currentUser?.user?.id}
                     whl={likedVideo}
                   />
                 </> //

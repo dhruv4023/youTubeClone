@@ -6,7 +6,7 @@ import "./WHL.css";
 import WHLvideoLst from "./WHLvideoLst";
 function WHL({ wdt, name, whl }) {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.currentUserReducer);
+  const currentUser = useSelector((state) => state.user);
   // console.log(currentUser);
   // const currentUser = {
   //   result: {
@@ -22,7 +22,7 @@ function WHL({ wdt, name, whl }) {
     if (currentUser) {
       dispatch(
         clearHistory({
-          userId: currentUser?.result?._id,
+          userId: currentUser?.user?.id,
         })
       );
     }
@@ -46,7 +46,7 @@ function WHL({ wdt, name, whl }) {
             <div className="whlList">
               <WHLvideoLst
                 name={name}
-                currentUser={currentUser?.result?._id}
+                currentUser={currentUser?.user?.id}
                 whl={whl}
               />
             </div>

@@ -12,9 +12,10 @@ import passport from 'passport';
 //
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-import videoRoutes from "./routes/Video.js";
+import videoRoutes from "./routes/video.js";
 import commentRoutes from "./routes/Comment.js";
 // import * as url from "url";
+import MongoStore from "connect-mongo"
 // const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const app = Express();
@@ -30,13 +31,27 @@ app.use(cors({
     'http://localhost:3000'
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, 
+  credentials: true,
 }));
-app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.DB_CONNECTION_URL, // Replace with your MongoDB URL
+      collectionName: 'sessions'
+    }),
+    cookie: {
+      secure: false, // Set to true if using HTTPS
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.get("/", (req, res) => {
-  res.send("Server running...");
+  res.send("Server running... <a href='/auth/google'>login</a>");
 });
 app.use(bodyParser.json());
 app.use("/uploads", Express.static(path.join("uploads")));
@@ -63,3 +78,12 @@ mongoose
     // console.log(error);
     console.log("db not connected");
   });
+
+// Endpoint to get session data
+app.get('/api/session-data', (req, res) => {
+  if (req.session.user) {
+    res.json(req.session.user);
+  } else {
+    res.status(401).json({ error: 'Unauthorized' });
+  }
+});

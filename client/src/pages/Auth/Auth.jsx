@@ -6,52 +6,48 @@ import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { logout } from "../../actions/auth";
 
-function Auth({ User, handleEditChanel, setAuthBtn }) {
+function Auth({ user, handleEditChanel, setAuthBtn }) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    logout();
-    dispatch(setCurrentUser(null));
-    alert("Logged out successfully");
+    dispatch(logout());
   };
 
   return (
-    <>
-      <div className="Auth_cont" onClick={() => setAuthBtn(false)}>
-        <div className="Auth_cont2">
-          <p className="User_Details_Auth">
-            <div className="Chanel_logo_App">
-              <p className="fstChar_logo_App">
-                {User?.result.name ? (
-                  <>{User?.result.name.charAt(0).toUpperCase()}</>
-                ) : (
-                  <>{User?.result.email.charAt(0).toUpperCase()}</>
-                )}
-              </p>
-            </div>
-            <div className="email_AUth">{User?.result.email}</div>
-          </p>
-          <div className="btns_auth">
-            {User?.result.name ? (
-              <Link to={`/chanel/${User?.result?._id}`} className="btn_Auth">
-                Your Channel
-              </Link>
-            ) : (
-              <input
-                type="submit"
-                className="btn_Auth"
-                onClick={() => handleEditChanel(true)}
-                value="Create Your Channel"
-              />
-            )}
-            <div onClick={handleLogout} className="btn_Auth">
-              <BiLogOut />
-              Log Out
-            </div>
+    <div className="Auth_cont" onClick={() => setAuthBtn(false)}>
+      <div className="Auth_cont2">
+        <div className="User_Details_Auth">
+          <div className="Chanel_logo_App">
+            <p className="fstChar_logo_App">
+              {user.name ? (
+                <>{user.name.charAt(0).toUpperCase()}</>
+              ) : (
+                <>{user.email.charAt(0).toUpperCase()}</>
+              )}
+            </p>
+          </div>
+          <div className="email_AUth">{user.email}</div>
+        </div>
+        <div className="btns_auth">
+          {user.name ? (
+            <Link to={`/chanel/${user.id}`} className="btn_Auth">
+              Your Channel
+            </Link>
+          ) : (
+            <input
+              type="submit"
+              className="btn_Auth"
+              onClick={() => handleEditChanel(true)}
+              value="Create Your Channel"
+            />
+          )}
+          <div onClick={handleLogout} className="btn_Auth">
+            <BiLogOut />
+            Log Out
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,14 +1,12 @@
 import axios from 'axios';
+import { setLogout } from '../state';
+
 
 export const logout = () => async (dispatch) => {
   try {
     // Call the API endpoint to log out
-    await axios.get('/auth/logout'); // Adjust the endpoint as needed
-
-    // Clear user data from local storage or state
-    localStorage.removeItem('userToken'); // Example for local storage
-    
-    // Optionally redirect to home or login page
+    await axios.get(`${process.env.REACT_APP_SERVER}/auth/logout`); // Adjust the endpoint as needed
+    dispatch(setLogout());
     window.location.href = '/'; // Redirect after logout
   } catch (error) {
     // Handle any errors that occur during the request

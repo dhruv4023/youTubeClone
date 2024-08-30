@@ -1,57 +1,51 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import moment from "moment";
-import { signup, login } from "../../actions/auth";
-
+import { login } from "../../actions/auth";
 import "./loginSignupPage.css";
 
-function LoginSignupPage({ login_v, setLogin, setLoginPage }) {
+function LoginSignupPage({ setLoginPage }) {
   const dispatch = useDispatch();
-
-  // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  // const [age, setAge] = useState("");
-  // const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) {
-      alert("Enter Email !");
-    } else if (email) {
-      // console.log("login")
+      alert("Enter Email!");
+    } else if (/\S+@\S+\.\S+/.test(email)) {
+      // Dispatch login action
       dispatch(login({ email }));
       setLoginPage(false);
+    } else {
+      alert("Enter a valid Email!");
     }
   };
 
   return (
     <div className="container_lsp">
-      <div>
-        <input
-          type="submit"
-          name="date"
-          value="x"
-          className="ibtn_x_lsp"
-          onClick={() => setLoginPage(false)}
-        />
-      </div>
+      <button
+        type="button"
+        className="ibtn_x_lsp"
+        onClick={() => setLoginPage(false)}
+      >
+        &times;
+      </button>
       <div className="logsign_lsp">
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Your Email"
-          className="ibox_lsp"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input
-          type="submit"
-          name="submit"
-          value="Login"
-          className="ibtn_lsp"
-          onClick={handleSubmit}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Your Email"
+            className="ibox_lsp"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="ibtn_lsp"
+          >
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );

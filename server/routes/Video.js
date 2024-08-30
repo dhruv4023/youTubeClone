@@ -1,5 +1,5 @@
 import express from "express";
-import { uploadVideos, getVideos } from "../controllers/video.js";
+import { uploadVideos, getAllVideos, getVideosByID } from "../controllers/video.js";
 const routes = express.Router();
 import {
   historyController,
@@ -20,19 +20,14 @@ import {
 import { likeController } from "../controllers/like.js";
 import { ViewController } from "../controllers/views.js";
 import auth from "../middlewares/auth.js";
-// routes.post("/video", upload.single("file"), async (req, res, next)=> {
-// })
 
 // Streams file upload to server/uploads directory
 import upload from "../helpers/filehelpers.js";
 routes.post("/uploadvideo", auth, upload.single("file"), uploadVideos);
 
-// Streams file upload to Google Storage
-// import upload from "../helpers/googleCloudFileHelper.js";
-// routes.post("/uploadvideo", auth, upload.single("file"), uploadVideos);
 
-
-routes.get("/getvideo", getVideos);
+routes.get("/get/:id", getVideosByID);
+routes.get("/getall", getAllVideos);
 
 routes.post("/history", auth, historyController);
 routes.get("/getHistory", getHistory);

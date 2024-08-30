@@ -4,12 +4,8 @@ import "./home.css";
 import ShowVideoGrid from "../ShowVideoGrid/ShowVideoGrid";
 import { useSelector } from "react-redux";
 function Home() {
-  // const vid='https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
-  // const vid=;
 
-  const vids = useSelector((state) => state.videoReducer)
-    ?.data?.filter((q) => q)
-    ?.reverse();
+  const vids = useSelector((state) => state.videos)
 
   const NavList = [
     "All",
@@ -34,7 +30,7 @@ function Home() {
       <div className="container_pages2">
         <div className="navigation_Home">
           {NavList.map((m) => (
-            <p className="btn_home_nav">{m}</p>
+            <div className="btn_home_nav" key={m}>{m}</div>
           ))}
         </div>
         <ShowVideoGrid  vids={vids} />
