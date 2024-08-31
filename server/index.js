@@ -13,14 +13,14 @@ import commentRoutes from "./routes/comment.js";
 import MongoStore from "connect-mongo"
 
 dotenv.config();
-const app = Express();
+const app = Express(); 
 
 initializePassport(passport);
 app.use(Express.json({ limit: "30mb", extended: true }));
 app.use(Express.urlencoded({ limit: "30mb", extended: true }));
 app.use(Express.static("public"));
 app.use(cors({
-  origin: ["*"], // Replace with actual origins in production
+  origin: ["http://localhost:3000"], // Replace with actual origins in production
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));

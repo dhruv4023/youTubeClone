@@ -1,30 +1,32 @@
-import * as api from "../api";
-export const addTolikedVideo = (likedVideoData) => async (dispatch) => {
+import axios from "axios";
+
+export const addTolikedVideo = async (likedVideoData, token) => {
   try {
-    const { data } = await api.addTolikedVideo(likedVideoData);
-    dispatch({ type: "POST_likedVideo", payload: data });
-    dispatch(getlikedVideo());
+
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    await axios.post(`${process.env.REACT_APP_SERVER}/video/likedVideo`, likedVideoData, config)
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getlikedVideo = () => async (dispatch) => {
-  try {
-    const { data } = await api.getlikedVideo();
-    // console.log(data);
-    dispatch({ type: "GET_LIKEDVIDEO", payload: data });
-    return data;
-  } catch (error) {
-    throw error;
-  }
-};
 
-export const deletelikedVideo = (vid) => async (dispatch) => {
+export const deletelikedVideo = async (vid, token) => {
   try {
     const { videoId, Viewer } = vid;
-    await api.deletelikedVideo(videoId, Viewer);
-    dispatch(getlikedVideo());
+
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    await axios.delete(`${process.env.REACT_APP_SERVER}/deletelikedVideo/${videoId}/${Viewer}`, config)
   } catch (error) {
     console.log(error);
   }

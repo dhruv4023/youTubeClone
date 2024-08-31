@@ -1,127 +1,101 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   RiHeartAddFill,
   RiPlayListAddFill,
   RiShareForwardLine,
 } from "react-icons/ri";
 import { MdPlaylistAddCheck } from "react-icons/md";
-
-import { addTowatchLater, deletewatchLater } from "../../actions/watchlater";
-import { likeVideo } from "../../actions/video";
 import {
   AiFillDislike,
   AiFillLike,
   AiOutlineDislike,
   AiOutlineLike,
 } from "react-icons/ai";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import "./BtnsVideoPage.css";
-import { addTolikedVideo, deletelikedVideo } from "../../actions/likedVideo";
 import { BsThreeDots } from "react-icons/bs";
+import axios from "axios";
+import { addTowatchLater, deletewatchLater } from "../../actions/watchlater";
+import { addTolikedVideo, deletelikedVideo } from "../../actions/likedVideo";
+import { likeVideo } from "../../actions/video";
+import "./BtnsVideoPage.css";
+
 function LikeWatchLater_BTN({ vv, vid }) {
-  const dispatch = useDispatch();
-
   const currentUser = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
 
-  const watchLaterList = useSelector((state) => state.watchLaterReducer);
-  const likedVideoList = useSelector((state) => state.likedVideoReducer);
-
-  // console.log(likedVideoList);
-  // const handleDeleteWatchLater=(id)=>{
-  // }
   const [watchLater, setWatchLater] = useState(false);
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
 
+  const fetchData = async () => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      const watchLaterResponse = await axios.get(
+        `${process.env.REACT_APP_SERVER}/video/get/watchLater/${currentUser.id}/${vid}`,
+        config
+      );
+      const likedVideoResponse = await axios.get(
+        `${process.env.REACT_APP_SERVER}/video/get/likedVideo/${currentUser.id}/${vid}`,
+        config
+      );
+      setWatchLater(watchLaterResponse.data.data != null);
+      setLike(likedVideoResponse.data.data != null);
+      setLikeCount(likedVideoResponse.data.likeCount);
+    } catch (error) {
+      console.error("Error fetching watch later or liked videos", error);
+    }
+  };
   useEffect(() => {
-    watchLaterList?.data
-      .filter(
-        (q) => q?.videoId === vid && q?.Viewer === currentUser?.user.id
-      )
-      .map((m) => setWatchLater(true));
-    likedVideoList?.data
-      .filter(
-        (q) => q?.videoId === vid && q?.Viewer === currentUser?.user.id
-      )
-      .map((m) => setLike(true));
-  }, []);
+    fetchData();
+  }, [vid, currentUser]);
 
   const handleWatchLater = () => {
     if (currentUser !== null) {
+      setWatchLater(!watchLater);
       if (watchLater) {
-        setWatchLater(false);
-        // console.log("s");
-        dispatch(
-          deletewatchLater({ videoId: vid, Viewer: currentUser?.user.id })
-        );
+        deletewatchLater({ videoId: vid, Viewer: currentUser.id }, token);
       } else {
-        setWatchLater(true);
-        dispatch(
-          addTowatchLater({
-            videoId: vid,
-            Viewer: currentUser?.user?.id,
-          })
-        );
+        addTowatchLater({ videoId: vid, Viewer: currentUser.id }, token);
       }
+      fetchData();
     } else {
-      alert("Plz Login to Save Video To WatchLater");
+      alert("Please login to save video to WatchLater");
     }
   };
 
   const handleLike = (e, lk) => {
     if (currentUser !== null) {
-      if (like) {
-        setLike(false);
-        dispatch(
-          likeVideo({
-            id: vid,
-            Like: lk - 1,
-          })
-        );
-        dispatch(
-          deletelikedVideo({ videoId: vid, Viewer: currentUser?.user.id })
-        );
-      } else {
-        setLike(true);
-        dispatch(
-          likeVideo({
-            id: vid,
-            Like: lk + 1,
-          })
-        );
-        dispatch(
-          addTolikedVideo({
-            videoId: vid,
-            Viewer: currentUser?.user?.id,
-          })
-        );
-      }
+      setLike(!like);
       setDisLike(false);
+      if (like) {
+        likeVideo({ id: vid, Like: lk - 1 });
+        deletelikedVideo({ videoId: vid, Viewer: currentUser.id }, token);
+      } else {
+        likeVideo({ id: vid, Like: lk + 1 });
+        addTolikedVideo({ videoId: vid, Viewer: currentUser.id }, token);
+      }
+      fetchData();
     } else {
-      alert("Plz Login to Like The Video");
+      alert("Please login to like the video");
     }
   };
 
   const handleDisLike = (e, lk) => {
     if (currentUser !== null) {
-      if (disLike) setDisLike(false);
-      else setDisLike(true);
+      setDisLike(!disLike);
       if (like) {
-        dispatch(
-          likeVideo({
-            id: vid,
-            Like: lk - 1,
-          })
-        );
+        likeVideo({ id: vid, Like: lk - 1 });
+        deletelikedVideo({ videoId: vid, Viewer: currentUser.id });
+        setLike(false);
       }
-      dispatch(
-        deletelikedVideo({ videoId: vid, Viewer: currentUser?.user.id })
-      );
-      setLike(false);
     } else {
-      alert("Plz Login to DisLike The Video");
+      alert("Please login to dislike the video");
     }
   };
 
@@ -130,88 +104,42 @@ function LikeWatchLater_BTN({ vv, vid }) {
       <div className="btn_videoPage">
         <BsThreeDots />
       </div>
-      <div className="btn_videoPage">
-        <div className="like_videopage" onClick={handleWatchLater}>
-          {watchLater ? (
-            <>
-              <MdPlaylistAddCheck size={22} className="btns_videoPage" />
-              <b>Saved</b>
-            </>
-          ) : (
-            <>
-              <RiPlayListAddFill size={22} className="btns_videoPage" />
-              <b>Save</b>
-            </>
-          )}
-        </div>
+      <div className="btn_videoPage" onClick={handleWatchLater}>
+        {watchLater ? (
+          <>
+            <MdPlaylistAddCheck size={22} className="btns_videoPage" />
+            <b>Saved</b>
+          </>
+        ) : (
+          <>
+            <RiPlayListAddFill size={22} className="btns_videoPage" />
+            <b>Save</b>
+          </>
+        )}
       </div>
       <div className="btn_videoPage">
-        <div className="like_videopage">
-          {watchLater ? (
-            <>
-              <RiHeartAddFill size={22} className="btns_videoPage" />
-            </>
-          ) : (
-            <>
-              <RiHeartAddFill size={22} className="btns_videoPage" />
-            </>
-          )}
-          <b>Thanks</b>
-        </div>
+        <RiHeartAddFill size={22} className="btns_videoPage" />
+        <b>Thanks</b>
       </div>
       <div className="btn_videoPage">
-        <div className="like_videopage">
-          {watchLater ? (
-            <>
-              <RiShareForwardLine size={22} className="btns_videoPage" />
-            </>
-          ) : (
-            <>
-              <RiShareForwardLine size={22} className="btns_videoPage" />
-            </>
-          )}
-          <b>Share</b>
-        </div>
+        <RiShareForwardLine size={22} className="btns_videoPage" />
+        <b>Share</b>
       </div>
-      <div className="btn_videoPage">
-        <div
-          className="like_videopage"
-          onClick={(e) => handleDisLike(e, vv.Like)}
-        >
-          {disLike ? (
-            <>
-              <AiFillDislike size={22} className="btns_videoPage" />
-            </>
-          ) : (
-            <>
-              <AiOutlineDislike size={22} className="btns_videoPage" />
-            </>
-          )}
-          <b>DISLIKE</b>
-        </div>
+      <div className="btn_videoPage" onClick={(e) => handleDisLike(e, vv.Like)}>
+        {disLike ? (
+          <AiFillDislike size={22} className="btns_videoPage" />
+        ) : (
+          <AiOutlineDislike size={22} className="btns_videoPage" />
+        )}
+        <b>DISLIKE</b>
       </div>
-
-      <div className="btn_videoPage">
-        <div className="like_videopage">
-          {like ? (
-            <>
-              <AiFillLike
-                onClick={(e) => handleLike(e, vv.Like)}
-                size={22}
-                className="btns_videoPage"
-              />
-            </>
-          ) : (
-            <>
-              <AiOutlineLike
-                onClick={(e) => handleLike(e, vv.Like)}
-                size={22}
-              />
-            </>
-          )}
-          <b>{vv.Like}</b>
-          {/* {console.log(vv.Like)} */}
-        </div>
+      <div className="btn_videoPage" onClick={(e) => handleLike(e, vv.Like)}>
+        {like ? (
+          <AiFillLike size={22} className="btns_videoPage" />
+        ) : (
+          <AiOutlineLike size={22} />
+        )}
+        <b>{likeCount}</b>
       </div>
     </div>
   );

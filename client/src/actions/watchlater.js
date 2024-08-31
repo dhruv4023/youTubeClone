@@ -1,31 +1,32 @@
-import * as api from "../api";
-export const addTowatchLater = (watchLaterData) => async (dispatch) => {
+import axios from "axios";
+
+// import * as api from "../api";
+export const addTowatchLater = async(watchLaterData,token)  => {
   try {
-    const { data } = await api.addTowatchLater(watchLaterData);
-    dispatch({ type: "POST_watchLater", payload: data });
-    dispatch(getwatchLater());
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    await axios.post(`${process.env.REACT_APP_SERVER}/video/watchLater`,watchLaterData,config)
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getwatchLater = () => async (dispatch) => {
-  try {
-    const { data } = await api.getwatchLater();
-    // console.log(data);
-    dispatch({ type: "GET_WATCHLATER", payload: data });
-    return data;
-  } catch (error) {
-    throw error;
-  }
-};
 
-export const deletewatchLater = (vid) => async (dispatch) => {
+export const deletewatchLater = async(vid,token)  => {
   try {
     const { videoId, Viewer } = vid;
-    // console.log(vid);
-    await api.deletewatchLater(videoId, Viewer);
-    dispatch(getwatchLater());
+
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    await axios.delete(`${process.env.REACT_APP_SERVER}/deletelikedVideo/${videoId}/${Viewer}`, config)
   } catch (error) {
     console.log(error);
   }

@@ -26,10 +26,6 @@ const singleFileSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Like: {
-      type: Number,
-      default: 0,
-    },
     Views: {
       type: Number,
       default: 0,
