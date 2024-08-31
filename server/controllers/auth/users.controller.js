@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import UserModel from '../../models/Auth.js'
+import UserModel from '../../models/Auth.model.js'
 
 export const getUser = async (req, res) => {
     try {

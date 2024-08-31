@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import users from '../../models/Auth.js';
+import users from '../../models/Auth.model.js';
 import session from 'express-session';
 
 export const loginCallback = async (req, res) => {

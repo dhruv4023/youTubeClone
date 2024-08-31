@@ -1,4 +1,4 @@
-import files from "../models/SingleFile.js";
+import files from "../models/SingleFile.model.js";
 
 export const ViewController = async (req, res) => {
   const { id: _id } = req.params;

@@ -1,5 +1,5 @@
-import SingleFile from "../models/SingleFile.js";
-import User from "../models/Auth.js";
+import SingleFile from "../models/SingleFile.model.js";
+import User from "../models/Auth.model.js";
 
 export const getVideosByID = async (req, res, next) => {
   try {

@@ -1,5 +1,5 @@
 
-import history from "../models/History.js"
+import history from "../models/History.model.js"
 
 export const historyController = async (req, res) => {
   const historyData = req.body;
