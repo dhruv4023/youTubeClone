@@ -11,21 +11,25 @@ routes.get('/google/callback',
 );
 
 routes.get('/logout', (req, res, next) => {
-   console.log("zc")
-   req.logout((err) => {
-       if (err) {
-           return next(err);
-        }
-        
-        req.session.destroy((err) => {
+    console.log("zc")
+    if (req.isAuthenticated()) {
+        req.logout((err) => {
             if (err) {
                 return next(err);
             }
-            res.clearCookie('connect.sid');  // Clear the session cookie
-            console.log("zc")
-            res.redirect('/');
+
+            req.session.destroy((err) => {
+                if (err) {
+                    return next(err);
+                }
+                res.clearCookie('connect.sid');  // Clear the session cookie
+                console.log("zc")
+                res.redirect('/');
+            });
         });
-    });
+    } else {
+        console.log("not authenticated")
+    }
 });
 
 export default routes;

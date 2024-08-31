@@ -8,7 +8,7 @@ import session from 'express-session';
 import passport from 'passport';
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-import videoRoutes from "./routes/video.js";
+import videoRoutes from "./routes/videoes.routes.js";
 import commentRoutes from "./routes/comment.js";
 import MongoStore from "connect-mongo"
 
@@ -24,6 +24,7 @@ app.use(cors({
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

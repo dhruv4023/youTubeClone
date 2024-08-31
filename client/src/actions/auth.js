@@ -5,7 +5,7 @@ import { setLogout } from '../state';
 export const logout = () => async (dispatch) => {
   try {
     // Call the API endpoint to log out
-    await axios.get(`${process.env.REACT_APP_SERVER}/auth/logout`); // Adjust the endpoint as needed
+    await axios.get(`${process.env.REACT_APP_SERVER}/auth/logout`, { withCredentials: true }); // Adjust the endpoint as needed
     dispatch(setLogout());
     window.location.href = '/'; // Redirect after logout
   } catch (error) {
