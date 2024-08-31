@@ -1,8 +1,8 @@
 import express from 'express'
 
-import { postcomment, deletecomment, getCommentsByVideoId,editcomment } from '../controllers/comments.js'
+import { postcomment, deletecomment, getCommentsByVideoId,editcomment } from '../controllers/comments.controller.js'
 
-import auth from '../middlewares/auth.js'
+import auth from '../middlewares/auth.middleware.js'
 
 const router = express.Router() 
 

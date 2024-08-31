@@ -1,24 +1,24 @@
 import express from "express";
-import { uploadVideos, getAllVideos, getVideosByID } from "../controllers/video.js";
+import { uploadVideos, getAllVideos, getVideosByID } from "../controllers/video.controller.js";
 const routes = express.Router();
 import {
   historyController,
   getHistory,
   clearhistory,
-} from "../controllers/history.js";
+} from "../controllers/history.controller.js";
 import {
   watchLaterController,
   getwatchLater,
   deletewatchLater,
-} from "../controllers/watchLater.js";
+} from "../controllers/watch_later.controller.js";
 
 import {
   likedVideoController,
   getlikedVideo,
   deletelikedVideo,
-} from "../controllers/likedVideo.js";
-import { ViewController } from "../controllers/views.js";
-import auth from "../middlewares/auth.js";
+} from "../controllers/liked_video.controller.js";
+import { ViewController } from "../controllers/views.controller.js";
+import auth from "../middlewares/auth.middleware.js";
 
 // Streams file upload to server/uploads directory
 import upload from "../helpers/filehelpers.js";

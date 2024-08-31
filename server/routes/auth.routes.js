@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginCallback } from '../controllers/auth/auth.js';
+import { loginCallback } from '../controllers/auth/auth.controller.js';
 import passport from 'passport';
 
 const routes = express.Router();
