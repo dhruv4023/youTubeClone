@@ -6,10 +6,10 @@ import dotenv from "dotenv";
 import path from "path";
 import session from 'express-session';
 import passport from 'passport';
-import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.routes.js";
+import userRoutes from "./routes/users.routes.js";
 import videoRoutes from "./routes/videoes.routes.js";
-import commentRoutes from "./routes/comment.js";
+import commentRoutes from "./routes/comment.routes.js";
 import MongoStore from "connect-mongo"
 
 dotenv.config();
